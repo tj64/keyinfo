@@ -1,0 +1,276 @@
+#+TITLE Keyinfo EMACS-LISP-MODE-MAP
+#+DATE 2013-03-21 Don 00:14 tj on hostname
+
+\Human readable keymap and unbound keys\
+
+* Keymap
+
+* Unbound Keys
+
+
+#+begin_example
+emacs-lisp-mode-map
+-------------------
+
+
+
+For more information check the manuals.
+
+Keymap for Emacs Lisp mode.
+All commands in `lisp-mode-shared-map' are inherited by this map.
+
+key             binding
+---             -------
+
+C-c             Prefix Command
+ESC             Prefix Command
+DEL             backward-delete-char-untabify
+
+C-c c           nuke-and-eval
+
+M-TAB           completion-at-point
+C-M-q           indent-pp-sexp
+C-M-x           eval-defun
+
+C-M-q           indent-sexp
+  (that binding is currently shadowed by another mode)
+
+#+end_example
+
+#+begin_example
+233 unbound keys with complexity at most 8:
+M-p
+M-n
+C-x y
+C-x w
+C-x p
+C-x j
+C-x g
+C-x c
+C-h z
+C-h y
+C-h x
+C-h j
+C-c z
+C-c y
+C-c u
+C-c t
+C-c s
+C-c q
+C-c p
+C-c o
+C-c n
+C-c k
+C-c j
+C-c i
+C-c h
+C-c d
+M-RET
+C-x SPC
+M-s z
+M-s y
+M-s x
+M-s v
+M-s u
+M-s t
+M-s r
+M-s q
+M-s p
+M-s m
+M-s l
+M-s k
+M-s j
+M-s i
+M-s g
+M-s f
+M-s e
+M-s d
+M-s c
+M-s b
+M-s a
+M-o z
+M-o y
+M-o x
+M-o w
+M-o v
+M-o t
+M-o s
+M-o r
+M-o q
+M-o p
+M-o n
+M-o m
+M-o k
+M-o j
+M-o h
+M-o g
+M-o f
+M-o e
+M-o c
+M-o a
+C-h SPC
+M-g z
+M-g y
+M-g x
+M-g v
+M-g u
+M-g t
+M-g s
+M-g r
+M-g q
+M-g o
+M-g m
+M-g l
+M-g k
+M-g j
+M-g i
+M-g h
+M-g f
+M-g e
+M-g d
+M-g c
+M-g b
+M-g a
+C-c SPC
+C-`
+C-=
+C-;
+C-.
+C-,
+C-'
+S-SPC
+S-RET
+C-M-z
+C-M-y
+C-x 9
+C-x 7
+M-s SPC
+M-s RET
+M-o SPC
+M-o RET
+M-RET
+C-h 9
+C-h 8
+C-h 7
+C-h 6
+C-h 5
+C-h 3
+C-h 2
+C-h 1
+C-h 0
+C-M-g
+M-g SPC
+M-g RET
+C-c 9
+C-c 8
+C-c 7
+C-c 6
+C-c 5
+C-c 4
+C-c 3
+C-c 2
+C-c 1
+C-c 0
+M-]
+M-[
+C-DEL
+C-~
+C-}
+C-|
+C-{
+C-x C-y
+C-x C-h
+C-x C-g
+C-x C-a
+C-x \
+C-x /
+C-x ,
+M-s 9
+M-s 8
+M-s 7
+M-s 6
+M-s 5
+M-s 4
+M-s 3
+M-s 2
+M-s 1
+M-s 0
+M-o 9
+M-o 8
+M-o 7
+M-o 6
+M-o 5
+M-o 4
+M-o 3
+M-o 2
+M-o 1
+M-o 0
+C-h C-z
+C-h C-y
+C-h C-x
+C-h C-v
+C-h C-u
+C-h C-s
+C-h C-r
+C-h C-q
+C-h C-k
+C-h C-j
+C-h TAB
+C-h C-g
+C-h C-b
+C-h `
+C-h ]
+C-h \
+C-h [
+C-h =
+C-h ;
+C-h /
+C-h -
+C-h ,
+C-h '
+C-h TAB
+M-g 9
+M-g 8
+M-g 7
+M-g 6
+M-g 5
+M-g 4
+M-g 3
+M-g 2
+M-g 1
+M-g 0
+C-c C-z
+C-c C-y
+C-c C-x
+C-c C-w
+C-c C-r
+C-c C-j
+C-c C-h
+C-c C-g
+C-c `
+C-c ]
+C-c \
+C-c [
+C-c =
+C-c ;
+C-c /
+C-c .
+C-c -
+C-c ,
+C-^
+C->
+C-<
+C-:
+C-+
+C-)
+C-(
+C-&
+C-%
+C-$
+C-#
+C-"
+C-!
+M-RET
+S-TAB
+
+#+end_example

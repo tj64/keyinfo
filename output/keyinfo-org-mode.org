@@ -1,0 +1,554 @@
+#+TITLE Keyinfo ORG-MODE-MAP
+#+DATE 2013-03-21 Don 01:01 tj on hostname
+
+\Human readable keymap and unbound keys\
+
+* Keymap
+
+#+begin_example
+org-mode-map
+------------
+
+
+
+For more information check the manuals.
+
+Keymap for `org-mode'.
+
+key             binding
+---             -------
+
+C-a             org-beginning-of-line
+C-c             Prefix Command
+C-e             org-end-of-line
+TAB             org-cycle
+C-j             org-return-indent
+C-k             org-kill-line
+RET             org-return
+C-y             org-yank
+ESC             Prefix Command
+|               org-force-self-insert
+            outline-next-visible-heading
+            outline-previous-visible-heading
+               outline-up-heading
+C-#             org-table-rotate-recalc-marks
+C-'             org-cycle-agenda-files
+C-,             org-cycle-agenda-files
+<C-S-down>      org-shiftcontroldown
+<C-S-return>    org-insert-todo-heading-respect-content
+<C-S-up>        org-shiftcontrolup
+<C-return>      org-insert-heading-respect-content
+<C-tab>         org-force-cycle-archived
+<M-S-down>      org-shiftmetadown
+<M-S-left>      org-shiftmetaleft
+<M-S-return>    org-insert-todo-heading
+<M-S-right>     org-shiftmetaright
+<M-S-up>        org-shiftmetaup
+<M-down>        org-metadown
+<M-left>        org-metaleft
+<M-return>      org-meta-return
+<M-right>       org-metaright
+<M-up>          org-metaup
+<S-iso-lefttab>                 org-shifttab
+<S-return>      org-table-copy-down
+<S-tab>         org-shifttab
+<backtab>       org-shifttab
+<remap>         Prefix Command
+<tab>           org-cycle
+
+M-TAB           pcomplete
+M-RET           org-insert-heading
+C-M-t           org-transpose-element
+M-+             org-shiftright
+M--             org-shiftleft
+M-a             org-backward-sentence
+M-e             org-forward-sentence
+M-h             org-mark-element
+M-n             org-shiftdown
+M-p             org-shiftup
+M-{             org-backward-element
+M-}             org-forward-element
+M-S-+           org-shiftcontrolright
+M-S--           org-shiftcontrolleft
+
+C-c C-a         org-attach
+C-c C-b         org-backward-heading-same-level
+C-c C-c         org-ctrl-c-ctrl-c
+C-c C-d         org-deadline
+C-c C-e         org-export-dispatch
+C-c C-f         org-forward-heading-same-level
+C-c C-j         org-goto
+C-c C-k         org-kill-note-or-show-branches
+C-c C-l         org-insert-link
+C-c RET         org-ctrl-c-ret
+C-c C-o         org-open-at-point
+C-c C-q         org-set-tags-command
+C-c C-r         org-reveal
+C-c C-s         org-schedule
+C-c C-t         org-todo
+C-c C-v         Prefix Command
+C-c C-w         org-refile
+C-c C-x         Prefix Command
+C-c C-y         org-evaluate-time-range
+C-c C-z         org-add-note
+C-c ESC         Prefix Command
+C-c C-^         org-up-element
+C-c C-_         org-down-element
+C-c SPC         org-table-blank-field
+C-c !           org-time-stamp-inactive
+C-c #           org-update-statistics-cookies
+C-c $           org-archive-subtree
+C-c %           org-mark-ring-push
+C-c &           org-mark-ring-goto
+C-c '           org-edit-special
+C-c *           org-ctrl-c-star
+C-c +           org-table-sum
+C-c ,           org-priority
+C-c -           org-ctrl-c-minus
+C-c .           org-time-stamp
+C-c /           org-sparse-tree
+C-c :           org-toggle-fixed-width-section
+C-c ;           org-toggle-comment
+C-c <           org-date-from-calendar
+C-c =           org-table-eval-formula
+C-c >           org-goto-calendar
+C-c ?           org-table-field-info
+C-c @           org-mark-subtree
+C-c \           org-match-sparse-tree
+C-c ^           org-sort
+C-c `           org-table-edit-field
+C-c {           org-table-toggle-formula-debugger
+C-c |           org-table-create-or-convert-from-region
+C-c }           org-table-toggle-coordinate-overlays
+C-c ~           org-table-create-with-table.el
+C-c C-*         org-list-make-subtree
+
+<remap> <delete-backward-char>  org-delete-backward-char
+<remap> <delete-char>           org-delete-char
+<remap> <outline-backward-same-level>
+                                org-backward-heading-same-level
+<remap> <outline-demote>        org-demote-subtree
+<remap> <outline-forward-same-level>
+                                org-forward-heading-same-level
+<remap> <outline-insert-heading>
+                                org-ctrl-c-ret
+<remap> <outline-mark-subtree>  org-mark-subtree
+<remap> <outline-promote>       org-promote-subtree
+<remap> <self-insert-command>   org-self-insert-command
+<remap> <show-branches>         org-kill-note-or-show-branches
+<remap> <show-subtree>          org-show-subtree
+<remap> <transpose-words>       org-transpose-words
+
+C-c @           Prefix Command
+  (that binding is currently shadowed by another mode)
+C-c I           outline-previous-visible-heading
+C-c J           outline-hide-more
+C-c K           outline-next-visible-heading
+C-c L           outline-show-more
+
+M-TAB           ispell-complete-word
+  (that binding is currently shadowed by another mode)
+
+C-c C-M-l       org-insert-all-links
+C-c M-b         org-previous-block
+C-c M-f         org-next-block
+C-c M-o         bh/mail-subtree
+C-c M-w         org-copy
+
+C-c C-v C-a     org-babel-sha1-hash
+C-c C-v C-b     org-babel-execute-buffer
+C-c C-v C-c     org-babel-check-src-block
+C-c C-v C-d     org-babel-demarcate-block
+C-c C-v C-e     org-babel-execute-maybe
+C-c C-v C-f     org-babel-tangle-file
+C-c C-v TAB     org-babel-view-src-block-info
+C-c C-v C-j     org-babel-insert-header-arg
+C-c C-v C-l     org-babel-load-in-session
+C-c C-v C-n     org-babel-next-src-block
+C-c C-v C-o     org-babel-open-src-block-result
+C-c C-v C-p     org-babel-previous-src-block
+C-c C-v C-r     org-babel-goto-named-result
+C-c C-v C-s     org-babel-execute-subtree
+C-c C-v C-t     org-babel-tangle
+C-c C-v C-u     org-babel-goto-src-block-head
+C-c C-v C-v     org-babel-expand-src-block
+C-c C-v C-x     org-babel-do-key-sequence-in-edit-buffer
+C-c C-v C-z     org-babel-switch-to-session
+C-c C-v ESC     Prefix Command
+C-c C-v I       org-babel-view-src-block-info
+C-c C-v a       org-babel-sha1-hash
+C-c C-v b       org-babel-execute-buffer
+C-c C-v c       org-babel-check-src-block
+C-c C-v d       org-babel-demarcate-block
+C-c C-v e       org-babel-execute-maybe
+C-c C-v f       org-babel-tangle-file
+C-c C-v g       org-babel-goto-named-src-block
+C-c C-v h       org-babel-describe-bindings
+C-c C-v i       org-babel-lob-ingest
+C-c C-v j       org-babel-insert-header-arg
+C-c C-v l       org-babel-load-in-session
+C-c C-v n       org-babel-next-src-block
+C-c C-v o       org-babel-open-src-block-result
+C-c C-v p       org-babel-previous-src-block
+C-c C-v r       org-babel-goto-named-result
+C-c C-v s       org-babel-execute-subtree
+C-c C-v t       org-babel-tangle
+C-c C-v u       org-babel-goto-src-block-head
+C-c C-v v       org-babel-expand-src-block
+C-c C-v x       org-babel-do-key-sequence-in-edit-buffer
+C-c C-v z       org-babel-switch-to-session-with-code
+
+C-c C-x C-a     org-archive-subtree-default
+C-c C-x C-b     org-toggle-checkbox
+C-c C-x C-c     org-columns
+C-c C-x C-d     org-clock-display
+C-c C-x C-f     org-emphasize
+C-c C-x TAB     org-clock-in
+C-c C-x C-j     org-clock-goto
+C-c C-x C-l     org-preview-latex-fragment
+C-c C-x RET     Prefix Command
+C-c C-x C-n     org-next-link
+C-c C-x C-o     org-clock-out
+C-c C-x C-p     org-previous-link
+C-c C-x C-q     org-clock-cancel
+C-c C-x C-r     org-clock-report
+C-c C-x C-s     org-advertized-archive-subtree
+C-c C-x C-t     org-toggle-time-stamp-overlays
+C-c C-x C-u     org-dblock-update
+C-c C-x C-v     org-toggle-inline-images
+C-c C-x C-w     org-cut-special
+C-c C-x C-x     org-clock-in-last
+C-c C-x C-y     org-paste-special
+C-c C-x C-z     org-resolve-clocks
+C-c C-x ESC     Prefix Command
+C-c C-x !       org-reload
+C-c C-x ,       org-timer-pause-or-continue
+C-c C-x -       org-timer-item
+C-c C-x .       org-timer
+C-c C-x 0       org-timer-start
+C-c C-x :       org-timer-cancel-timer
+C-c C-x ;       org-timer-set-timer
+C-c C-x <       org-agenda-set-restriction-lock
+C-c C-x >       org-agenda-remove-restriction-lock
+C-c C-x A       org-archive-to-archive-sibling
+C-c C-x E       org-inc-effort
+C-c C-x G       org-feed-goto-inbox
+C-c C-x P       org-set-property-and-value
+C-c C-x [       org-reftex-citation
+C-c C-x \       org-toggle-pretty-entities
+C-c C-x _       org-timer-stop
+C-c C-x a       org-toggle-archive-tag
+C-c C-x b       org-tree-to-indirect-buffer
+C-c C-x c       org-clone-subtree-with-time-shift
+C-c C-x d       org-insert-drawer
+C-c C-x e       org-set-effort
+C-c C-x f       org-footnote-action
+C-c C-x g       org-feed-update-all
+C-c C-x i       org-insert-columns-dblock
+C-c C-x o       org-toggle-ordered-property
+C-c C-x p       org-set-property
+C-c C-x v       org-copy-visible
+
+C-c @ C-a       show-all
+C-c @ C-b       outline-backward-same-level
+C-c @ C-c       hide-entry
+C-c @ C-d       hide-subtree
+C-c @ C-e       show-entry
+C-c @ C-f       outline-forward-same-level
+C-c @ TAB       show-children
+C-c @ C-k       show-branches
+C-c @ C-l       hide-leaves
+C-c @ RET       outline-insert-heading
+C-c @ C-n       outline-next-visible-heading
+C-c @ C-o       outline-hide-other
+C-c @ C-p       outline-previous-visible-heading
+C-c @ C-q       outline-hide-sublevels
+C-c @ C-s       show-subtree
+C-c @ C-t       hide-body
+C-c @ C-u       outline-up-heading
+C-c @ C-v       outline-move-subtree-down
+C-c @ C-^       outline-move-subtree-up
+C-c @ #         outorg-edit-as-org
+C-c @ '         outorg-edit-as-org
+C-c @ @         outline-mark-subtree
+C-c @ I         outline-previous-visible-heading
+C-c @ J         outline-hide-more
+C-c @ K         outline-next-visible-heading
+C-c @ L         outline-show-more
+C-c @ C-<       outline-promote
+C-c @ C->       outline-demote
+
+C-c C-v C-M-h   org-babel-mark-block
+
+C-c C-x C-M-v   org-redisplay-inline-images
+C-c C-x M-w     org-copy-special
+
+C-c C-x RET g   org-mobile-pull
+C-c C-x RET p   org-mobile-push
+
+#+end_example
+
+* Unbound Keys
+
+#+begin_example
+258 unbound keys with complexity at most 8:
+M-p
+M-n
+C-x y
+C-x w
+C-x p
+C-x j
+C-x g
+C-x c
+C-h z
+C-h y
+C-h x
+C-h j
+C-c z
+C-c y
+C-c u
+C-c t
+C-c s
+C-c q
+C-c p
+C-c o
+C-c n
+C-c k
+C-c j
+C-c i
+C-c h
+C-c d
+C-c c
+M-RET
+C-x SPC
+M-s z
+M-s y
+M-s x
+M-s v
+M-s u
+M-s t
+M-s r
+M-s q
+M-s p
+M-s m
+M-s l
+M-s k
+M-s j
+M-s i
+M-s g
+M-s f
+M-s e
+M-s d
+M-s c
+M-s b
+M-s a
+M-o z
+M-o y
+M-o x
+M-o w
+M-o v
+M-o t
+M-o s
+M-o r
+M-o q
+M-o p
+M-o n
+M-o m
+M-o k
+M-o j
+M-o h
+M-o g
+M-o f
+M-o e
+M-o c
+M-o a
+C-h SPC
+M-g z
+M-g y
+M-g x
+M-g v
+M-g u
+M-g t
+M-g s
+M-g r
+M-g q
+M-g o
+M-g m
+M-g l
+M-g k
+M-g j
+M-g i
+M-g h
+M-g f
+M-g e
+M-g d
+M-g c
+M-g b
+M-g a
+C-c SPC
+C-c RET
+C-`
+C-=
+C-;
+C-.
+C-,
+C-'
+S-SPC
+S-RET
+C-M-z
+C-M-y
+C-M-x
+C-x 9
+C-x 7
+M-s SPC
+M-s RET
+C-M-q
+M-o SPC
+M-o RET
+M-RET
+C-h 9
+C-h 8
+C-h 7
+C-h 6
+C-h 5
+C-h 3
+C-h 2
+C-h 1
+C-h 0
+C-M-g
+M-g SPC
+M-g RET
+C-c 9
+C-c 8
+C-c 7
+C-c 6
+C-c 5
+C-c 4
+C-c 3
+C-c 2
+C-c 1
+C-c 0
+M-]
+M-[
+C-DEL
+C-~
+C-}
+C-|
+C-{
+C-x C-y
+C-x C-h
+C-x C-g
+C-x C-a
+C-x \
+C-x /
+C-x ,
+M-s 9
+M-s 8
+M-s 7
+M-s 6
+M-s 5
+M-s 4
+M-s 3
+M-s 2
+M-s 1
+M-s 0
+M-o 9
+M-o 8
+M-o 7
+M-o 6
+M-o 5
+M-o 4
+M-o 3
+M-o 2
+M-o 1
+M-o 0
+C-h C-z
+C-h C-y
+C-h C-x
+C-h C-v
+C-h C-u
+C-h C-s
+C-h C-r
+C-h C-q
+C-h C-k
+C-h C-j
+C-h TAB
+C-h C-g
+C-h C-b
+C-h `
+C-h ]
+C-h \
+C-h [
+C-h =
+C-h ;
+C-h /
+C-h -
+C-h ,
+C-h '
+C-h TAB
+M-g 9
+M-g 8
+M-g 7
+M-g 6
+M-g 5
+M-g 4
+M-g 3
+M-g 2
+M-g 1
+M-g 0
+C-c C-z
+C-c C-y
+C-c C-x
+C-c C-w
+C-c C-v
+C-c C-u
+C-c C-t
+C-c C-s
+C-c C-r
+C-c C-q
+C-c C-p
+C-c C-o
+C-c C-n
+C-c RET
+C-c C-l
+C-c C-k
+C-c C-j
+C-c TAB
+C-c C-h
+C-c C-g
+C-c C-f
+C-c C-e
+C-c C-d
+C-c C-c
+C-c C-b
+C-c C-a
+C-c `
+C-c ]
+C-c \
+C-c [
+C-c =
+C-c ;
+C-c /
+C-c .
+C-c -
+C-c ,
+C-c '
+C-c TAB
+C-^
+C-?
+C->
+C-<
+C-:
+C-+
+C-)
+C-(
+C-&
+C-%
+C-$
+C-#
+C-"
+C-!
+M-RET
+S-TAB
+
+#+end_example
