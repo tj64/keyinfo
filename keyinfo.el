@@ -58,6 +58,10 @@
 ;; * Defuns
 ;; ** Functions
 
+(defun keyinfo-cdr-last (lst)
+  "Return atom if LST is cons cell or nil otherwise."
+  (and lst (listp lst) (cdr (last lst))))
+
 ;; from http://emacswiki.org/emacs/ElispCookbook#toc6
 (defun keyinfo-chomp (str)
   "Chomp leading and trailing whitespace from STR."
@@ -86,7 +90,11 @@ in the current buffer."
          (key-alist
           (let ((alist))
             (dolist (key key-list alist)
-              (let ((key-split (split-string key " " 'OMIT-NULLS)))
+              (let ((key-split
+                     (split-string
+                      (replace-regexp-in-string
+                       "|" "\\\\vert" key)
+                      " " 'OMIT-NULLS)))
               (push
                (cons (car key-split) (cadr key-split))
                alist)))))
@@ -94,7 +102,8 @@ in the current buffer."
           (let ((newlst))
             (dolist (assc key-alist newlst)
               (let ((assc-split
-                     (if (not (cdr assc))
+                     (if (not (keyinfo-cdr-last assc))
+                     ;; (if (not (cdr assc))
                          (split-string (car assc) "-" 'OMIT-NULLS)
                        assc)))
                 (push
@@ -106,10 +115,12 @@ in the current buffer."
             (dolist (assc key-alist-2 newlst2)
               (let ((assc-concat
                      (if (and
-                          (nth 3 assc) 
-                          (member (nth 1 assc) prefix-keys)
-                          (member (nth 2 assc) prefix-keys))
-                         (cons (car assc) (cadr assc) (cddr assc))
+                          (not (keyinfo-cdr-last assc))
+                          (member (nth 0 assc) prefix-keys)
+                          (member (nth 1 assc) prefix-keys))
+                         (cons
+                           (concat (car assc) "-" (cadr assc))
+                           (cddr assc))
                        assc)))
                 (push assc-concat newlst2)))))
          (prefix-key-set
@@ -146,20 +157,17 @@ in the current buffer."
       (dolist (key key-alist-3)
         (let ((col (cdr (assoc (car key) columns-alist))))
           (org-table-goto-line 2)
+          ;; FIXME deal with # and $ behaviour of 'org-table-insert-row'
           (while (not
                   (string-empty-p
                    (keyinfo-chomp (org-table-get-field col))))
             (org-table-next-row))
-          ;; (or (org-table-next-row)
-          ;;     (org-table-insert-row)))
           (org-table-put
            (org-table-current-line)
            col
            (or (car-safe (cdr-safe key))(cdr key)))))
       (org-table-align)
       )))
-
-
 
 
 (defun keyinfo-make-keymap-table (&optional mode)
