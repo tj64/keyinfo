@@ -105,32 +105,32 @@ in the current buffer."
                             (concat "[others]-- " key))
                        (and (string-match "^C-M-S-" key)
                             (replace-regexp-in-string
-                             "^C-M-S-" "C-M-S-- -" key))
+                             "^C-M-S-" "C-M-S--- " key))
                        (and (string-match "^C-M-" key)
                             (replace-regexp-in-string
-                             "^C-M-" "C-M-- -" key))
+                             "^C-M-" "C-M--- " key))
                        (and (string-match "^C-S-" key)
                             (replace-regexp-in-string
-                             "^C-S-" "C-S-- -" key))
+                             "^C-S-" "C-S--- " key))
                        (and (string-match "^M-S-" key)
                             (replace-regexp-in-string
-                             "^M-S-" "M-S-- -" key))
+                             "^M-S-" "M-S--- " key))
                        (and (string-match "^C-" key)
                             (replace-regexp-in-string
-                             "^C-" "C-- -" key))
+                             "^C-" "C--- " key))
                        (and (string-match "^M-" key)
                             (replace-regexp-in-string
-                             "^M-" "M-- -" key))
+                             "^M-" "M--- " key))
                        (and (string-match "^S-" key)
                             (replace-regexp-in-string
-                             "^S-" "S-- -" key)))
+                             "^S-" "S--- " key)))
                       "-- " 'OMIT-NULLS)))
-                     (push
-                      (list
-                       ;; (cons
-                       (car key-split)
-                       (mapconcat 'identity (cdr key-split) " "))
-                      alist)))))
+                (push
+                 (list
+                  ;; (cons
+                  (car key-split)
+                  (mapconcat 'identity (cdr key-split) " "))
+                 alist)))))
          (prefix-key-set
           (delete-dups
            (let ((prefix))
@@ -155,32 +155,41 @@ in the current buffer."
       "prefix-key-set: %s\n\n"
       "columns-alist: %s\n\n"
       )
-     key-list key-alist prefix-key-set columns-alist)))
-
-    ;; ;; FIXME replace with 'with-temp-buffer' and return buffer-string
-    ;; (with-current-buffer (get-buffer-create out-buf-name)
-    ;;   (erase-buffer)
-    ;;   (org-table-create
-    ;;    (format "%dx%d" (length prefix-key-set) 2))
-    ;;   (dolist (col columns-alist)
-    ;;     (org-table-put 1 (cdr col) (car col) 'ALIGN))
-    ;;   (org-table-goto-column 1)
-    ;;   (org-table-goto-line 2)
-    ;;   (message "dline: %s, point: %s" (org-table-current-dline) (point))
-    ;;   (dolist (key key-alist-3)
-    ;;     (let ((col (cdr (assoc (car key) columns-alist))))
-    ;;       (org-table-goto-line 2)
-    ;;       ;; FIXME deal with # and $ behaviour of 'org-table-insert-row'
-    ;;       (while (not
-    ;;               (string-empty-p
-    ;;                (keyinfo-chomp (org-table-get-field col))))
-    ;;         (org-table-next-row)
-    ;;         (org-table-get-field 1 ""))
-    ;;       (org-table-put
-    ;;        (org-table-current-line)
-    ;;        col
-    ;;        (or (car-safe (cdr-safe key))(cdr key)))))
-    ;;   (org-table-align))))
+     key-list key-alist prefix-key-set columns-alist)
+    ;; FIXME replace with 'with-temp-buffer' and return buffer-string
+    (with-current-buffer (get-buffer-create out-buf-name)
+      (erase-buffer)
+      ;; (org-mode)
+      (org-table-create
+       (format "%dx%d" (length prefix-key-set) 2))
+      (dolist (col columns-alist)
+        (org-table-put 1 (cdr col) (car col) 'ALIGN))
+      (org-table-goto-column 1)
+      (org-table-goto-line 2)
+      (message "dline: %s, point: %s" (org-table-current-dline) (point))
+      (dolist (key key-alist)
+        (let ((col (cdr (assoc (car key) columns-alist))))
+          (message "dline: %s, point: %s" (org-table-current-dline) (point))
+          (org-table-goto-line 2)
+          (message "dline: %s, point: %s" (org-table-current-dline) (point))
+          (while (not
+                  (string-empty-p
+                   (keyinfo-chomp (org-table-get-field col))))
+            (message "dline: %s, point: %s" (org-table-current-dline) (point))
+            (org-table-next-row)
+            (message "dline: %s, point: %s" (org-table-current-dline) (point))
+            (cond ((string-equal
+                    (keyinfo-chomp (org-table-get-field 1)) "#")
+                   (org-table-get-field 1 "[#]"))
+                  ((string-equal
+                    (keyinfo-chomp (org-table-get-field 1)) "$")
+                   (org-table-get-field 1 "[$]")))
+            (message "dline: %s, point: %s" (org-table-current-dline) (point)))
+          (org-table-put
+           (org-table-current-line)
+           col
+           (or (car-safe (cdr-safe key))(cdr key)))))
+      (org-table-align))))
 
 
 (defun keyinfo-make-keymap-table (&optional mode)
