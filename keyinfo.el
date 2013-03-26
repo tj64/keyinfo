@@ -124,12 +124,6 @@ in the current buffer."
                        (and (string-match "^S-" key)
                             (replace-regexp-in-string
                              "^S-" "S-- -" key)))
-                            ;; (replace-regexp-in-string
-                            ;;  "<[[:word:]-]+>"
-                            ;;  (concat "[others]-- " (match-string))
-                            ;;  key)))
-                        ;; (t (replace-regexp-in-string
-                        ;;    ".+" (concat "[others]-- " (match-string)) key)))
                       "-- " 'OMIT-NULLS)))
                      (push
                       (list
@@ -137,74 +131,6 @@ in the current buffer."
                        (car key-split)
                        (mapconcat 'identity (cdr key-split) " "))
                       alist)))))
-         ;; (key-alist-2
-         ;;  (let ((newlst))
-         ;;    (dolist (assc key-alist newlst)
-
-         ;; (key-alist-2
-         ;;  (let ((newlst))
-         ;;    (dolist (assc key-alist newlst)
-         ;;      (let* ((assc-car-split
-         ;;              ;; (if (not (keyinfo-cdr-last assc))
-         ;;              ;; (if (not (cdr assc))
-         ;;              (split-string (car assc) "-" 'OMIT-NULLS))
-         ;;             ;; assc)))
-         ;;             (assc-car-concat
-         ;;              (let ((elt1 (nth 0 assc-car-split))
-         ;;                    (elt2 (nth 1 assc-car-split))
-         ;;                    (elt3 (nth 2 assc-car-split))
-         ;;                    (rest (cdddr assc-car-split)))
-         ;;                (if (not (cdr assc))
-         ;;                    (and (>= (length assc-car-split) 3)
-         ;;                         (cond
-         ;;                          ((and
-         ;;                            (member elt1 prefix-keys)
-         ;;                            (member elt2 prefix-keys)
-         ;;                            (member elt2 prefix-keys)
-         ;;                            (not
-         ;;                             (or
-         ;;                              (string-equal elt1 elt2)
-         ;;                              (string-equal elt1 elt3))
-         ;;                             (string-equal elt2 elt3)))
-         ;;                           (format "%s-%s-%s %s" elt1 elt2 elt3 rest))
-         ;;                          ((  ))))
-
-
-
-         ;;                         (or
-         ;;                          (and
-         ;;                           (member elt3 prefix-keys)
-         ;;                          )))
-         ;;                        (cons
-         ;;                         (concat
-         ;;                          (car assc-car-split)
-         ;;                          "-"
-         ;;                          (cadr assc-car-split))
-         ;;                         (mapconcat 'identity
-         ;;                                    (cddr assc-car-split) " "))
-         ;;                      assc-car-split)))))
-         ;;        (push
-         ;;         (cons (car assc-car-concat) (cdr assc-car-concat))
-         ;;         newlst)))))
-         ;; (key-alist-3
-         ;;  (let ((newlst2)
-         ;;        (prefix-keys (list "M" "C" "S")))
-         ;;    (dolist (assc key-alist-2 newlst2)
-         ;;      (let ((assc-concat
-         ;;             (if (and
-         ;;                  (not (keyinfo-cdr-last assc))
-         ;;                  (member (nth 0 assc) prefix-keys)
-         ;;                  (member (nth 1 assc) prefix-keys)
-         ;;                  (not
-         ;;                   (string-equal
-         ;;                    (nth 0 assc)
-         ;;                    (nth 1 assc))))
-         ;;                 (cons
-         ;;                  (concat (car assc) "-" (cadr assc))
-         ;;                  (mapconcat 'identity (cddr assc) " "))
-         ;;               assc)))
-         ;;        (push assc-concat newlst2))) )
-
          (prefix-key-set
           (delete-dups
            (let ((prefix))
@@ -228,12 +154,8 @@ in the current buffer."
       "key-alist: %s\n\n"
       "prefix-key-set: %s\n\n"
       "columns-alist: %s\n\n"
-      ;; "key-alist-2: %S \n\n"
-      ;; "key-alist-3: %S \n\n")
       )
-     ;; key-list key-alist prefix-key-set columns-alist key-alist-2 key-alist-3)
      key-list key-alist prefix-key-set columns-alist)))
-
 
     ;; ;; FIXME replace with 'with-temp-buffer' and return buffer-string
     ;; (with-current-buffer (get-buffer-create out-buf-name)
