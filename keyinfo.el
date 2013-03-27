@@ -1,7 +1,5 @@
-;; * keyinfo.el --- extract- keymap-info into an org file
+;; * keyinfo.el --- extract keymap-info into org file
 ;;   :PROPERTIES:
-;;   :CUSTOM_ID: tj-keyinfo
-;;   :CATEGORY: elisp-hacking
 ;;   :copyright: Thorsten Jolitz
 ;;   :copyright-years: 2013
 ;;   :licence:  GPL 2 or later (free software)
@@ -37,35 +35,8 @@
 (require 'unbound)
 (require 'help-fns+)
 
-;; * Variables
-;; ** Consts
-;; ** Vars
-
-(defvar keyinfo-combined-prefix-list
-  '("C-M" "C-S" "C-M-S" "C-S-M" "M-C" "M-S" "M-C-S" "M-S-C")
-  "List of possible combined prefixes used in keybindings.")
-
-;; ** Hooks
-;; ** Fonts
-;; ** Customs
-;; *** Custom Groups 
-
-;; (defgroup keyinfo nil
-;;   "Library for extracting keymap-info into an org file."
-;;   :prefix "keyinfo-"
-;;   :group 'lisp 'org)
-
-;; *** Custom Vars
-
-  :group 'keyinfo
-  :type '(repeat string))
-
 ;; * Defuns
 ;; ** Functions
-
-(defun keyinfo-cdr-last (lst)
-  "Return atom if LST is cons cell or nil otherwise."
-  (and lst (listp lst) (cdr (last lst))))
 
 ;; from http://emacswiki.org/emacs/ElispCookbook#toc6
 (defun keyinfo-chomp (str)
@@ -78,22 +49,24 @@
         (setq str (replace-match "" t t str)))
       str)))
 
-
-(defun keyinfo-make-unbound-key-table (complexity out-buf-name &optional mode)
+(defun keyinfo-make-unbound-key-table (complexity &optional mode)
   "Transform unbound-key array from `describe-unbound-keys' into table.
 If MODE is non-nil, it is activated in a tmp buffer before
 `describe-unbound-keys' is called in that tmp-buffer, otherwise it is called
 in the current buffer."
   (let* ((key-array
+          ;; original array of unbound-keys
           (if mode
               (with-temp-buffer
                 (funcall mode)
                 (describe-unbound-keys complexity))
             (describe-unbound-keys complexity)))
+         ;; unbound-keys array converted into list
          (key-list
           (split-string
            (replace-regexp-in-string "|" "\\\\vert" key-array)
            "\n" 'OMIT-NULLS))
+         ;; unbound-keys alist with keys splitted into prefix and key(s)
          (key-alist
           (let ((alist))
             (dolist (key key-list alist)
@@ -127,18 +100,18 @@ in the current buffer."
                       "-- " 'OMIT-NULLS)))
                 (push
                  (list
-                  ;; (cons
                   (car key-split)
                   (mapconcat 'identity (cdr key-split) " "))
                  alist)))))
+         ;; a set with all encountered prefixes
          (prefix-key-set
           (delete-dups
            (let ((prefix))
-             ;; (dolist (assc key-alist-3 prefix)
              (dolist (assc key-alist prefix)
                (push
                 (car assc)
                 prefix)))))
+         ;; an alist with a unique column-number for each prefix
          (columns-alist
           (let ((cols)
                 (i 1))
@@ -147,57 +120,41 @@ in the current buffer."
                (cons prefix i)
                cols)
               (setq i (1+ i))))))
-    ;; FIXME delete
-    (message
-     (concat
-      "\n\nkey-list: %s\n\n"
-      "key-alist: %s\n\n"
-      "prefix-key-set: %s\n\n"
-      "columns-alist: %s\n\n"
-      )
-     key-list key-alist prefix-key-set columns-alist)
-    ;; FIXME replace with 'with-temp-buffer' and return buffer-string
-    (with-current-buffer (get-buffer-create out-buf-name)
-      (erase-buffer)
-      ;; (org-mode)
+    (with-temp-buffer
+      ;; create initially empty table with adecuate number of columns
       (org-table-create
        (format "%dx%d" (length prefix-key-set) 2))
+      ;; insert column headers
       (dolist (col columns-alist)
         (org-table-put 1 (cdr col) (car col) 'ALIGN))
       (org-table-goto-column 1)
       (org-table-goto-line 2)
-      (message "dline: %s, point: %s" (org-table-current-dline) (point))
+      ;; loop over unbound keys alist
       (dolist (key key-alist)
+        ;; find the column for insertion
         (let ((col (cdr (assoc (car key) columns-alist))))
-          (message "dline: %s, point: %s" (org-table-current-dline) (point))
           (org-table-goto-line 2)
-          (message "dline: %s, point: %s" (org-table-current-dline) (point))
+          ;; find (or create) the cell for insertion
           (while (not
                   (string-empty-p
                    (keyinfo-chomp (org-table-get-field col))))
-            (message "dline: %s, point: %s" (org-table-current-dline) (point))
             (org-table-next-row)
-            (message "dline: %s, point: %s" (org-table-current-dline) (point))
+            ;; deal with 'org-table-next-row' special treatment of # and $
             (cond ((string-equal
                     (keyinfo-chomp (org-table-get-field 1)) "#")
                    (org-table-get-field 1 "[#]"))
                   ((string-equal
                     (keyinfo-chomp (org-table-get-field 1)) "$")
-                   (org-table-get-field 1 "[$]")))
-            (message "dline: %s, point: %s" (org-table-current-dline) (point)))
+                   (org-table-get-field 1 "[$]"))))
+          ;; insert key(s) into cell
           (org-table-put
            (org-table-current-line)
            col
            (or (car-safe (cdr-safe key))(cdr key)))))
-      (org-table-align))))
-
-
-(defun keyinfo-make-keymap-table (&optional mode)
-  "Transform keymap buffer-string from `describe-keymap' into table.
-If MODE is non-nil, it is activated in a tmp buffer before
-`describe-keymap' is called in that tmp-buffer, otherwise it is called
-in the current buffer.")
-
+      ;; align table
+      (org-table-align)
+      ;; return complete table
+      (buffer-string))))
 
 (defun keyinfo-show (&optional out mode num ascii)
   "Insert info about keymap and unbound keys in Org file.
@@ -209,9 +166,9 @@ shown, otherwise up to complexity 8. If ASCII is non-nil, the Org
 output file will be exported to an ASCII buffer that might be
 saved manually."
   (let* ((complexity  (or num 8))
-        (mode (or mode major-mode))
-        (mode-strg (if (stringp mode) mode (symbol-name mode)))
-        (outbuffer
+         (mode (or mode major-mode))
+         (mode-strg (if (stringp mode) mode (symbol-name mode)))
+         (outbuffer
           (or out
               (find-file-noselect
                (expand-file-name
@@ -219,14 +176,16 @@ saved manually."
                  "keyinfo-"
                  mode-strg
                  ".org")
-                 (uniquify-buffer-file-name (current-buffer))))))
-        (map (intern (concat mode-strg "-map")))
-        (unbound-keys-array nil))
+                (uniquify-buffer-file-name (current-buffer))))))
+         (map (intern (concat mode-strg "-map")))
+         (unbound-keys-array nil))
     (if (not (boundp map))
         (message "Mode map %s not bound." map)
+      ;; create *Help* buffer with human readable keymap-info
       (describe-keymap map)
       (with-current-buffer outbuffer
         (erase-buffer)
+        ;; create title and outline structure
         (insert
          "#+TITLE "
          (format "Keyinfo %s\n" (upcase (symbol-name map)))
@@ -235,31 +194,33 @@ saved manually."
          "\\Human readable keymap and unbound keys\\\n\n"
          "* Keymap\n\n"
          "* Unbound Keys\n\n")
+        ;; insert *Help* buffer keymap-info into EXAMPLE block
         (goto-char
          (org-find-exact-headline-in-buffer "Keymap" nil 'POS-ONLY))
         (forward-line 2)
-        ;; (org-babel-demarcate-block)
         (insert "#+begin_example\n")
-        ;; insert the keymap
         (insert-buffer-substring-no-properties "*Help*")
         (kill-buffer "*Help*")
         (newline)
         (insert "#+end_example\n\n")
+        ;; insert compact Org-mode table with unbound keys
         (goto-char
          (org-find-exact-headline-in-buffer "Unbound Keys" nil 'POS-ONLY))
         (forward-line 2)
-        ;; insert a table with unbound keys in mode
-        (if mode
-            (with-temp-buffer
-              (and (functionp mode) (funcall mode))
-              (describe-unbound-keys complexity))
-          (describe-unbound-keys complexity))
+        (insert
+         (format "Unbound keys with complexity at most %d\n\n" complexity))
         (insert "#+begin_example\n")
-        (insert-buffer-substring-no-properties "*Unbound Keys*")
-        (kill-buffer "*Unbound Keys*")
+        (insert (keyinfo-make-unbound-key-table complexity))
         (newline)
         (insert "#+end_example\n")
-        (save-buffer)))))
+        (save-buffer)
+        ;; (optionally) create and show ASCII buffer with keyinfo
+        (and ascii
+             (display-buffer
+              (org-export-to-buffer
+               'ascii
+               (concat (car (split-string (buffer-name) ".org" 'OMIT-NULLS))
+                       ":ASCII"))))))))
 
 ;; ** Commands
 
@@ -278,8 +239,8 @@ key-complexity, and ASCII, if non-nil, triggers export to ascii-buffer."
        ascii)
     (message "Unknown Emacs mode entered.")))
 
-;; * Menus and Keys
-;; ** Menus
-;; ** Keys
 ;; * Run Hooks and Provide
 
+(provide 'keyinfo)
+
+;;; keyinfo.el ends here

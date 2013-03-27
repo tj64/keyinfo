@@ -1,0 +1,204 @@
+#+TITLE Keyinfo ESS-MODE-MAP
+#+DATE 2013-03-27 Mit 19:03 tj on hostname
+
+\Human readable keymap and unbound keys\
+
+* Keymap
+
+#+begin_example
+ess-mode-map
+------------
+
+
+
+For more information check the manuals.
+
+Keymap for `ess-mode'.
+
+key             binding
+---             -------
+
+C-c             Prefix Command
+TAB             ess-indent-command
+RET             newline-and-indent
+C-x             Prefix Command
+ESC             Prefix Command
+,               ess-smart-comma
+_               ess-smart-underscore
+{               ess-electric-brace
+}               ess-electric-brace
+
+C-x n           Prefix Command
+
+C-M-a           ess-beginning-of-function
+C-M-e           ess-end-of-function
+C-M-h           ess-mark-function
+M-TAB           comint-replace-by-expanded-filename
+C-M-q           ess-indent-exp
+C-M-x           ess-eval-function
+M-?             ess-list-object-completions
+
+C-c C-b         ess-eval-buffer
+C-c C-c         ess-eval-function-or-paragraph-and-step
+C-c C-d         ess-dump-object-into-edit-buffer
+C-c C-e         Prefix Command
+C-c C-f         ess-eval-function
+C-c TAB         ess-complete-object-name
+C-c C-j         ess-eval-line
+C-c C-k         ess-force-buffer-current
+C-c C-l         ess-load-file
+C-c C-n         ess-eval-line-and-step
+C-c C-p         ess-eval-paragraph-and-step
+C-c C-q         ess-quit
+C-c C-r         ess-eval-region
+C-c C-s         ess-switch-process
+C-c C-t         ess-execute-in-tb
+C-c C-v         ess-display-help-on-object
+C-c C-w         ess-multi-frame-SAS
+C-c C-y         ess-switch-to-ESS
+C-c C-z         ess-switch-to-end-of-ESS
+C-c ESC         Prefix Command
+C-c .           ess-set-style
+C-c `           ess-parse-errors
+C-c <C-down>    ess-eval-buffer-from-here-to-end
+C-c <C-up>      ess-eval-buffer-from-beg-to-here
+
+C-x n d         ess-narrow-to-defun
+
+C-c C-e C-b     ess-eval-buffer
+C-c C-e C-f     ess-eval-function
+C-c C-e C-j     ess-eval-line
+C-c C-e C-n     ess-eval-line-and-step
+C-c C-e C-r     ess-eval-region
+C-c C-e C-x     ess-eval-function
+C-c C-e ESC     Prefix Command
+
+C-c M-b         ess-eval-buffer-and-go
+C-c M-f         ess-eval-function-and-go
+C-c M-j         ess-eval-line-and-go
+C-c M-p         ess-eval-paragraph-and-go
+C-c M-r         ess-eval-region-and-go
+
+C-c C-e M-b     ess-eval-buffer-and-go
+C-c C-e M-f     ess-eval-function-and-go
+C-c C-e M-j     ess-eval-line-and-go
+C-c C-e M-r     ess-eval-region-and-go
+
+#+end_example
+
+* Unbound Keys
+
+Unbound keys with complexity at most 8
+
+#+begin_example
+| C-    | M-    | S-  | C-M- |
+|-------+-------+-----+------|
+| !     | g 0   | TAB | g    |
+| "     | g 1   | RET | q    |
+| [$]   | g 2   | SPC | x    |
+| %     | g 3   |     | y    |
+| &     | g 4   |     | z    |
+| (     | g 5   |     |      |
+| )     | g 6   |     |      |
+| +     | g 7   |     |      |
+| :     | g 8   |     |      |
+| <     | g 9   |     |      |
+| >     | o 0   |     |      |
+| ^     | o 1   |     |      |
+| c TAB | o 2   |     |      |
+| c C-g | o 3   |     |      |
+| c C-h | o 4   |     |      |
+| c TAB | o 5   |     |      |
+| c C-n | o 6   |     |      |
+| c C-p | o 7   |     |      |
+| c C-u | o 8   |     |      |
+| h TAB | o 9   |     |      |
+| h '   | s 0   |     |      |
+| h ,   | s 1   |     |      |
+| h -   | s 2   |     |      |
+| h /   | s 3   |     |      |
+| h ;   | s 4   |     |      |
+| h =   | s 5   |     |      |
+| h [   | s 6   |     |      |
+| h \   | s 7   |     |      |
+| h ]   | s 8   |     |      |
+| h `   | s 9   |     |      |
+| h C-b | [     |     |      |
+| h C-g | ]     |     |      |
+| h TAB | g RET |     |      |
+| h C-j | g SPC |     |      |
+| h C-k | o RET |     |      |
+| h C-q | o SPC |     |      |
+| h C-r | s RET |     |      |
+| h C-s | s SPC |     |      |
+| h C-u | g a   |     |      |
+| h C-v | g b   |     |      |
+| h C-x | g c   |     |      |
+| h C-y | g d   |     |      |
+| h C-z | g e   |     |      |
+| x ,   | g f   |     |      |
+| x /   | g h   |     |      |
+| x \   | g i   |     |      |
+| x C-a | g j   |     |      |
+| x C-g | g k   |     |      |
+| x C-h | g l   |     |      |
+| x C-y | g m   |     |      |
+| {     | g o   |     |      |
+| \vert | g q   |     |      |
+| }     | g r   |     |      |
+| ~     | g s   |     |      |
+| DEL   | g t   |     |      |
+| c 0   | g u   |     |      |
+| c 1   | g v   |     |      |
+| c 2   | g x   |     |      |
+| c 3   | g y   |     |      |
+| c 4   | g z   |     |      |
+| c 5   | o a   |     |      |
+| c 6   | o c   |     |      |
+| c 7   | o e   |     |      |
+| c 8   | o f   |     |      |
+| c 9   | o g   |     |      |
+| h 0   | o h   |     |      |
+| h 1   | o j   |     |      |
+| h 2   | o k   |     |      |
+| h 3   | o m   |     |      |
+| h 5   | o n   |     |      |
+| h 6   | o p   |     |      |
+| h 7   | o q   |     |      |
+| h 8   | o r   |     |      |
+| h 9   | o s   |     |      |
+| x 7   | o t   |     |      |
+| x 9   | o v   |     |      |
+| .     | o w   |     |      |
+| ;     | o x   |     |      |
+| =     | o y   |     |      |
+| `     | o z   |     |      |
+| h SPC | s a   |     |      |
+| x SPC | s b   |     |      |
+| c c   | s c   |     |      |
+| c d   | s d   |     |      |
+| c h   | s e   |     |      |
+| c i   | s f   |     |      |
+| c j   | s g   |     |      |
+| c k   | s i   |     |      |
+| c n   | s j   |     |      |
+| c o   | s k   |     |      |
+| c p   | s l   |     |      |
+| c q   | s m   |     |      |
+| c s   | s p   |     |      |
+| c t   | s q   |     |      |
+| c u   | s r   |     |      |
+| c y   | s t   |     |      |
+| c z   | s u   |     |      |
+| h j   | s v   |     |      |
+| h x   | s x   |     |      |
+| h y   | s y   |     |      |
+| h z   | s z   |     |      |
+| x c   |       |     |      |
+| x g   |       |     |      |
+| x j   |       |     |      |
+| x p   |       |     |      |
+| x w   |       |     |      |
+| x y   |       |     |      |
+
+#+end_example

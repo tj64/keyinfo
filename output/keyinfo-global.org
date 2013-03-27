@@ -1,0 +1,1232 @@
+#+TITLE Keyinfo GLOBAL-MAP
+#+DATE 2013-03-27 Mit 19:00 tj on hostname
+
+\Human readable keymap and unbound keys\
+
+* Keymap
+
+#+begin_example
+global-map
+----------
+
+
+
+For more information check the manuals.
+
+Default global keymap mapping Emacs keyboard input into commands.
+The value is a keymap which is usually (but not necessarily) Emacs's
+global map.
+
+key             binding
+---             -------
+
+SPC .. $        self-insert-command  (binding currently shadowed)
+& .. ~          self-insert-command
+¬Ä .. ¯èøΩø       self-insert-command
+Ä .. ˇ    self-insert-command
+
+C-@             set-mark-command
+C-a             move-beginning-of-line
+C-b             backward-char
+C-c             mode-specific-command-prefix
+C-d             delete-char
+C-e             move-end-of-line
+C-f             forward-char
+C-g             keyboard-quit
+C-h             help-command
+TAB             indent-for-tab-command
+  (that binding is currently shadowed by another mode)
+C-j             newline-and-indent
+  (that binding is currently shadowed by another mode)
+C-k             kill-line
+C-l             recenter-top-bottom
+RET             newline
+  (that binding is currently shadowed by another mode)
+C-n             next-line
+C-o             open-line
+C-p             previous-line
+C-q             quoted-insert
+C-r             isearch-backward
+C-s             isearch-forward
+C-t             transpose-chars
+C-u             universal-argument
+C-v             scroll-up-command
+C-w             kill-region
+C-x             Control-X-prefix
+C-y             yank
+C-z             suspend-frame
+ESC             ESC-prefix
+C-\             toggle-input-method
+C-]             abort-recursive-edit
+C-_             undo
+  (that binding is currently shadowed by another mode)
+%               match-paren
+  (that binding is currently shadowed by another mode)
+DEL             delete-backward-char
+  (that binding is currently shadowed by another mode)
+C-S-n           hlt-next-highlight
+C-S-p           hlt-previous-highlight
+C-S-v           scroll-other-window
+C-SPC           set-mark-command
+C-*             hlt-highlight-current-word
+C--             negative-argument
+C-/             undo
+  (that binding is currently shadowed by another mode)
+C-0 .. C-9      digit-argument
+<C-M-down>      down-list
+<C-M-end>       end-of-defun
+<C-M-home>      beginning-of-defun
+<C-M-left>      backward-sexp
+<C-M-right>     forward-sexp
+<C-M-up>        backward-up-list
+<C-M-√ü>         indent-region
+<C-S-backspace>                 kill-whole-line
+<C-S-down>      shrink-window
+<C-S-left>      enlarge-window-horizontally
+<C-S-right>     shrink-window-horizontally
+<C-S-up>        enlarge-window
+<C-backspace>   backward-kill-word
+<C-delete>      kill-word
+<C-down>        forward-paragraph
+<C-down-mouse-1>                mouse-buffer-menu
+<C-down-mouse-2>                facemenu-menu
+<C-end>         end-of-buffer
+<C-f10>         next-buffer
+<C-f11>         org-clock-in
+<C-f5>          ??
+<C-f6>          ??
+<C-f9>          previous-buffer
+<C-home>        beginning-of-buffer
+<C-insert>      kill-ring-save
+<C-insertchar>  kill-ring-save
+<C-left>        left-word
+<C-menu>        hippie-expand
+<C-mouse-4>     mwheel-scroll
+<C-mouse-5>     mwheel-scroll
+<C-next>        scroll-left
+<C-prior>       scroll-right
+<C-right>       right-word
+<C-s-f12>       bh/save-then-publish
+<C-tab>         ??
+<C-up>          backward-paragraph
+<M-begin>       beginning-of-buffer-other-window
+<M-down-mouse-1>                mouse-drag-secondary
+<M-drag-mouse-1>                mouse-set-secondary
+<M-end>         end-of-buffer-other-window
+<M-f1>          highlight-regexp
+<M-f2>          highlight-lines-matching-regexp
+<M-f3>          hi-lock-mode
+<M-f4>          hi-lock-write-interactive-patterns
+<M-f9>          org-toggle-inline-images
+<M-home>        beginning-of-buffer-other-window
+<M-left>        left-word
+<M-menu>        lisp-complete-symbol
+<M-mouse-1>     mouse-start-secondary
+<M-mouse-2>     mouse-yank-secondary
+<M-mouse-3>     mouse-secondary-save-then-kill
+<M-next>        scroll-other-window
+<M-prior>       scroll-other-window-down
+<M-right>       right-word
+<M-tab>         tj/hippie-expand
+<S-delete>      kill-region
+<S-down>        windmove-down
+<S-down-mouse-1>                mouse-appearance-menu
+<S-f5>          bh/widen
+<S-f6>          bh/org-todo
+<S-insert>      yank
+<S-insertchar>  yank
+<S-left>        windmove-left
+<S-menu>        execute-extended-command
+<S-mouse-3>     kmacro-end-call-mouse
+<S-mouse-4>     mwheel-scroll
+<S-mouse-5>     mwheel-scroll
+<S-right>       windmove-right
+<S-up>          windmove-up
+<again>         repeat-complex-command
+<begin>         beginning-of-buffer
+<compose-last-chars>            compose-last-chars
+<copy>          clipboard-kill-ring-save
+<cut>           clipboard-kill-region
+<delete-frame>  handle-delete-frame
+<deletechar>    delete-forward-char
+<deleteline>    kill-line
+<double-mouse-1>                mouse-set-point
+<down>          next-line
+<down-mouse-1>  mouse-drag-region
+<drag-mouse-1>  mouse-set-region
+<end>           move-end-of-line
+<execute>       execute-extended-command
+<f1>            help-command
+<f10>           menu-bar-open
+<f11>           bury-buffer
+<f12>           org-agenda
+<f16>           clipboard-kill-ring-save
+<f18>           clipboard-yank
+<f2>            2C-command
+<f20>           clipboard-kill-region
+<f3>            kmacro-start-macro-or-insert-counter
+<f4>            kmacro-end-or-call-macro
+<f5>            winner-undo
+<f6>            winner-redo
+<f7>            bh/set-truncate-lines
+<f8>            org-cycle-agenda-files
+<f9>            Prefix Command
+<find>          search-forward
+<header-line>   Prefix Command
+<help>          help-command
+<home>          move-beginning-of-line
+<iconify-frame>                 ignore-event
+<insert>        overwrite-mode
+<insertchar>    overwrite-mode
+<insertline>    open-line
+<left>          left-char
+<make-frame-visible>            ignore-event
+<menu>          dabbrev-expand
+<mode-line>     Prefix Command
+<mouse-1>       mouse-set-point
+<mouse-2>       mouse-yank-primary
+  (that binding is currently shadowed by another mode)
+<mouse-3>       mouse-save-then-kill
+<mouse-4>       mwheel-scroll
+<mouse-5>       mwheel-scroll
+<mouse-movement>                ignore
+<next>          scroll-up-command
+<open>          find-file
+<paste>         clipboard-yank
+<prior>         scroll-down-command
+<quail-advice>  quail-advice
+<redo>          repeat-complex-command
+<remap>         Prefix Command
+<right>         right-char
+<select-window>                 handle-select-window
+<switch-frame>                  handle-switch-frame
+<triple-mouse-1>                mouse-set-point
+<undo>          undo
+<up>            previous-line
+<vertical-line>                 Prefix Command
+<vertical-scroll-bar>           Prefix Command
+
+C-c a           org-agenda
+C-c b           org-iswitchb
+C-c e           Prefix Command
+C-c f           tj/goto-symbol-definition
+C-c g           Prefix Command
+C-c l           org-store-link
+C-c m           column-marker-1
+C-c r           org-capture
+C-c v           view-buffer
+C-c w           Prefix Command
+C-c x           Prefix Command
+C-c |           tj/toggle-window-split
+C-c ~           tj/swap-windows
+
+C-h C-a         apropos
+C-h C-c         describe-key-briefly
+C-h C-d         view-emacs-debugging
+C-h C-e         view-external-packages
+C-h C-f         view-emacs-FAQ
+C-h C-h         help-for-help
+C-h C-l         locate-library
+C-h RET         help-on-click/key
+C-h C-n         view-emacs-news
+C-h C-o         describe-option-of-type
+C-h C-p         view-emacs-problems
+C-h C-t         view-emacs-todo
+C-h C-w         describe-no-warranty
+C-h ESC         Prefix Command
+C-h C-\         describe-input-method
+C-h .           display-local-help
+C-h 4           Prefix Command
+C-h ?           help-for-help
+C-h A           apropos-variable
+C-h B           describe-buffer
+C-h C           describe-coding-system
+C-h F           Info-goto-emacs-command-node
+C-h I           describe-input-method
+C-h K           Info-goto-emacs-key-command-node
+C-h L           describe-language-environment
+C-h P           describe-package
+C-h S           info-lookup-symbol
+C-h a           apropos-command
+C-h b           describe-bindings
+C-h c           describe-command
+C-h d           apropos-documentation
+C-h e           view-echo-area-messages
+C-h f           describe-function
+C-h g           describe-gnu-project
+C-h h           view-hello-file
+C-h i           info
+C-h k           describe-key
+C-h l           view-lossage
+C-h m           describe-mode
+C-h n           view-emacs-news
+C-h o           describe-option
+C-h p           finder-by-keyword
+C-h q           help-quit
+C-h r           info-emacs-manual
+C-h s           describe-syntax
+C-h t           help-with-tutorial
+C-h u           manual-entry
+C-h v           describe-variable
+C-h w           where-is
+C-h <down-mouse-1>              mouse-help-on-click
+C-h <f1>        help-for-help
+C-h <help>      help-for-help
+C-h <mode-line>                 Prefix Command
+
+C-x C-@         pop-global-mark
+C-x C-b         ibuffer
+C-x C-c         save-buffers-kill-terminal
+C-x C-d         list-directory
+C-x C-e         eval-last-sexp
+C-x C-f         find-file
+C-x TAB         indent-rigidly
+C-x C-j         dired-jump
+C-x C-k         kmacro-keymap
+C-x C-l         downcase-region
+C-x RET         Prefix Command
+C-x C-n         set-goal-column
+C-x C-o         delete-blank-lines
+C-x C-p         mark-page
+C-x C-q         toggle-read-only
+C-x C-r         find-file-read-only
+C-x C-s         save-buffer
+C-x C-t         transpose-lines
+C-x C-u         upcase-region
+C-x C-v         find-alternate-file
+C-x C-w         write-file
+C-x C-x         exchange-point-and-mark
+C-x C-z         suspend-frame
+C-x ESC         Prefix Command
+C-x $           set-selective-display
+C-x '           expand-abbrev
+C-x (           kmacro-start-macro
+C-x )           kmacro-end-macro
+C-x *           calc-dispatch
+C-x +           balance-windows
+C-x -           shrink-window-if-larger-than-buffer
+C-x .           set-fill-prefix
+C-x 0           delete-window
+C-x 1           delete-other-windows
+C-x 2           split-window-below
+C-x 3           split-window-right
+C-x 4           ctl-x-4-prefix
+C-x 5           ctl-x-5-prefix
+C-x 6           2C-command
+C-x 8           Prefix Command
+C-x ;           comment-set-column
+C-x <           scroll-left
+C-x =           what-cursor-position
+C-x >           scroll-right
+C-x [           backward-page
+C-x ]           forward-page
+C-x ^           enlarge-window
+C-x `           next-error
+C-x a           Prefix Command
+C-x b           switch-to-buffer
+C-x d           dired
+C-x e           kmacro-end-and-call-macro
+C-x f           recentf-ido-find-file
+C-x h           mark-whole-buffer
+C-x i           insert-file
+C-x k           kill-buffer
+C-x l           count-lines-page
+C-x m           browse-url-at-point
+C-x n           Prefix Command
+C-x o           switch-window
+C-x q           kbd-macro-query
+C-x r           Prefix Command
+C-x s           save-some-buffers
+C-x t           tj/switch-to-tmp-buffer
+C-x u           undo
+  (that binding is currently shadowed by another mode)
+C-x v           vc-prefix-map
+C-x x           smex
+C-x z           repeat
+C-x {           shrink-window-horizontally
+C-x }           enlarge-window-horizontally
+C-x DEL         backward-kill-sentence
+C-x C-S-r       find-file-root
+C-x C-SPC       pop-global-mark
+C-x C-+         text-scale-adjust
+C-x C--         text-scale-adjust
+C-x C-0         text-scale-adjust
+C-x C-=         text-scale-adjust
+C-x <C-left>    previous-buffer
+C-x <C-right>   next-buffer
+C-x <left>      previous-buffer
+C-x <right>     next-buffer
+
+M-0 .. M-9      digit-argument  (binding currently shadowed)
+
+C-M-@           mark-sexp
+C-M-a           beginning-of-defun
+C-M-b           backward-sexp
+C-M-c           exit-recursive-edit
+C-M-d           down-list
+C-M-e           end-of-defun
+C-M-f           forward-sexp
+C-M-h           mark-defun
+M-TAB           complete-symbol
+  (that binding is currently shadowed by another mode)
+C-M-j           indent-new-comment-line
+C-M-k           kill-sexp
+C-M-l           reposition-window
+C-M-n           forward-list
+C-M-o           split-line
+C-M-p           backward-list
+C-M-r           org-capture
+C-M-s           isearch-forward-regexp
+C-M-t           transpose-sexps
+C-M-u           backward-up-list
+C-M-v           scroll-other-window
+C-M-w           append-next-kill
+ESC ESC         Prefix Command
+C-M-\           indent-region
+M-SPC           just-one-space
+M-!             shell-command
+M-$             ispell-word
+M-%             query-replace
+M-&             async-shell-command
+M-'             abbrev-prefix-mark
+M-(             insert-parentheses
+M-)             move-past-close-and-reindent
+M-*             pop-tag-mark
+M-,             tags-loop-continue
+M--             negative-argument
+M-.             find-tag
+M-/             tj/hippie-expand
+M-:             eval-expression
+M-;             comment-dwim
+M-<             beginning-of-buffer
+M-=             count-words-region
+M->             end-of-buffer
+M-@             mark-word
+M-X             smex-major-mode-commands
+M-\             delete-horizontal-space
+M-^             delete-indentation
+M-`             tmm-menubar
+M-a             backward-sentence
+M-b             backward-word
+M-c             capitalize-word
+M-d             kill-word
+M-e             forward-sentence
+M-f             forward-word
+M-g             Prefix Command
+M-h             mark-paragraph
+M-i             tab-to-tab-stop
+M-j             indent-new-comment-line
+M-k             kill-sentence
+M-l             downcase-word
+M-m             back-to-indentation
+M-o             facemenu-keymap
+M-q             fill-paragraph
+M-r             move-to-window-line-top-bottom
+M-s             Prefix Command
+M-t             transpose-words
+M-u             upcase-word
+M-v             scroll-down-command
+M-w             kill-ring-save
+M-x             smex
+M-y             yank-pop
+M-z             zap-to-char
+M-{             backward-paragraph
+M-|             shell-command-on-region
+M-}             forward-paragraph
+M-~             not-modified
+M-DEL           backward-kill-word
+C-M-S-v         scroll-other-window-down
+M-S-v           scroll-other-window-down
+C-M-SPC         mark-sexp
+C-M-%           query-replace-regexp
+C-M--           negative-argument
+C-M-.           find-tag-regexp
+C-M-/           dabbrev-completion
+C-M-0 .. C-M-9  digit-argument
+ESC <C-backspace>               backward-kill-sexp
+ESC <C-delete>                  backward-kill-sexp
+ESC <C-down>                    down-list
+ESC <C-end>                     end-of-defun
+ESC <C-home>                    beginning-of-defun
+ESC <C-left>                    backward-sexp
+ESC <C-right>                   forward-sexp
+ESC <C-up>      backward-up-list
+ESC <begin>     beginning-of-buffer-other-window
+ESC <end>       end-of-buffer-other-window
+ESC <home>      beginning-of-buffer-other-window
+ESC <left>      backward-word
+ESC <next>      scroll-other-window
+ESC <prior>     scroll-other-window-down
+ESC <right>     forward-word
+
+M-s ESC         Prefix Command
+M-s h           Prefix Command
+M-s n           navi-search-and-switch
+M-s o           tj/occur-search-and-switch
+M-s s           navi-switch-to-twin-buffer
+M-s w           isearch-forward-word
+
+M-o ESC         Prefix Command
+M-o b           facemenu-set-bold
+M-o d           facemenu-set-default
+M-o i           facemenu-set-italic
+M-o l           facemenu-set-bold-italic
+M-o o           facemenu-set-face
+M-o u           facemenu-set-underline
+
+M-g ESC         Prefix Command
+M-g g           goto-line
+M-g n           next-error
+M-g p           previous-error
+M-g w           what-line
+
+M-ESC ESC       keyboard-escape-quit
+M-ESC :         eval-expression
+
+<f9> SPC        bh/clock-in-last-task
+<f9> I          bh/punch-in
+<f9> O          bh/punch-out
+<f9> T          bh/toggle-insert-inactive-timestamp
+<f9> Y          tabify
+<f9> b          bbdb
+<f9> c          calendar
+<f9> f          boxquote-insert-file
+<f9> g          gnus
+<f9> h          bh/hide-other
+<f9> n          org-narrow-to-subtree
+<f9> o          bh/make-org-scratch
+<f9> p          bh/phone-call
+<f9> r          boxquote-region
+<f9> s          bh/switch-to-scratch
+<f9> t          bh/insert-inactive-timestamp
+<f9> u          bh/narrow-up-one-level
+<f9> v          visible-mode
+<f9> w          widen
+<f9> y          untabify
+<f9> <f9>       bh/show-org-agenda
+
+<vertical-line> <C-mouse-2>     mouse-split-window-vertically
+<vertical-line> <down-mouse-1>  mouse-drag-vertical-line
+<vertical-line> <mouse-1>       mouse-select-window
+
+<vertical-scroll-bar> <C-mouse-2>
+                                mouse-split-window-vertically
+<vertical-scroll-bar> <mouse-1>
+                                scroll-bar-toolkit-scroll
+
+<header-line> <down-mouse-1>    mouse-drag-header-line
+<header-line> <mouse-1>         mouse-select-window
+
+<mode-line> <C-mouse-2>         mouse-split-window-horizontally
+<mode-line> <down-mouse-1>      mouse-drag-mode-line
+<mode-line> <drag-mouse-1>      mouse-select-window
+<mode-line> <mouse-1>           mouse-select-window
+<mode-line> <mouse-2>           mouse-delete-other-windows
+<mode-line> <mouse-3>           mouse-delete-window
+
+<C-down-mouse-2> <bg>           facemenu-background-menu
+<C-down-mouse-2> <dc>           list-colors-display
+<C-down-mouse-2> <df>           list-faces-display
+<C-down-mouse-2> <dp>           describe-text-properties
+<C-down-mouse-2> <fc>           facemenu-face-menu
+<C-down-mouse-2> <fg>           facemenu-foreground-menu
+<C-down-mouse-2> <in>           facemenu-indentation-menu
+<C-down-mouse-2> <ju>           facemenu-justification-menu
+<C-down-mouse-2> <ra>           facemenu-remove-all
+<C-down-mouse-2> <rm>           facemenu-remove-face-props
+<C-down-mouse-2> <sp>           facemenu-special-menu
+
+<f1> C-a        apropos
+<f1> C-c        describe-key-briefly
+<f1> C-d        view-emacs-debugging
+<f1> C-e        view-external-packages
+<f1> C-f        view-emacs-FAQ
+<f1> C-h        help-for-help
+<f1> C-l        locate-library
+<f1> RET        help-on-click/key
+<f1> C-n        view-emacs-news
+<f1> C-o        describe-option-of-type
+<f1> C-p        view-emacs-problems
+<f1> C-t        view-emacs-todo
+<f1> C-w        describe-no-warranty
+<f1> ESC        Prefix Command
+<f1> C-\        describe-input-method
+<f1> .          display-local-help
+<f1> 4          Prefix Command
+<f1> ?          help-for-help
+<f1> A          apropos-variable
+<f1> B          describe-buffer
+<f1> C          describe-coding-system
+<f1> F          Info-goto-emacs-command-node
+<f1> I          describe-input-method
+<f1> K          Info-goto-emacs-key-command-node
+<f1> L          describe-language-environment
+<f1> P          describe-package
+<f1> S          info-lookup-symbol
+<f1> a          apropos-command
+<f1> b          describe-bindings
+<f1> c          describe-command
+<f1> d          apropos-documentation
+<f1> e          view-echo-area-messages
+<f1> f          describe-function
+<f1> g          describe-gnu-project
+<f1> h          view-hello-file
+<f1> i          info
+<f1> k          describe-key
+<f1> l          view-lossage
+<f1> m          describe-mode
+<f1> n          view-emacs-news
+<f1> o          describe-option
+<f1> p          finder-by-keyword
+<f1> q          help-quit
+<f1> r          info-emacs-manual
+<f1> s          describe-syntax
+<f1> t          help-with-tutorial
+<f1> u          manual-entry
+<f1> v          describe-variable
+<f1> w          where-is
+<f1> <down-mouse-1>             mouse-help-on-click
+<f1> <f1>       help-for-help
+<f1> <help>     help-for-help
+<f1> <mode-line>                Prefix Command
+
+<help> C-a      apropos
+<help> C-c      describe-key-briefly
+<help> C-d      view-emacs-debugging
+<help> C-e      view-external-packages
+<help> C-f      view-emacs-FAQ
+<help> C-h      help-for-help
+<help> C-l      locate-library
+<help> RET      help-on-click/key
+<help> C-n      view-emacs-news
+<help> C-o      describe-option-of-type
+<help> C-p      view-emacs-problems
+<help> C-t      view-emacs-todo
+<help> C-w      describe-no-warranty
+<help> ESC      Prefix Command
+<help> C-\      describe-input-method
+<help> .        display-local-help
+<help> 4        Prefix Command
+<help> ?        help-for-help
+<help> A        apropos-variable
+<help> B        describe-buffer
+<help> C        describe-coding-system
+<help> F        Info-goto-emacs-command-node
+<help> I        describe-input-method
+<help> K        Info-goto-emacs-key-command-node
+<help> L        describe-language-environment
+<help> P        describe-package
+<help> S        info-lookup-symbol
+<help> a        apropos-command
+<help> b        describe-bindings
+<help> c        describe-command
+<help> d        apropos-documentation
+<help> e        view-echo-area-messages
+<help> f        describe-function
+<help> g        describe-gnu-project
+<help> h        view-hello-file
+<help> i        info
+<help> k        describe-key
+<help> l        view-lossage
+<help> m        describe-mode
+<help> n        view-emacs-news
+<help> o        describe-option
+<help> p        finder-by-keyword
+<help> q        help-quit
+<help> r        info-emacs-manual
+<help> s        describe-syntax
+<help> t        help-with-tutorial
+<help> u        manual-entry
+<help> v        describe-variable
+<help> w        where-is
+<help> <down-mouse-1>           mouse-help-on-click
+<help> <f1>                     help-for-help
+<help> <help>                   help-for-help
+<help> <mode-line>              Prefix Command
+
+<f2> 2          2C-two-columns
+<f2> b          2C-associate-buffer
+<f2> s          2C-split
+<f2> <f2>       2C-two-columns
+
+C-c x c         tj/rebox-cycle
+C-c x d         rebox-dwim
+
+C-c e w         enlarge-window
+
+C-c g RET       tj/google-search
+C-c g a         lookup-word-definition-in-w3m
+C-c g g         tj/google-search
+C-c g i         Prefix Command
+C-c g r         tj/google-search-region
+C-c g u         tj/url-at-point
+C-c g w         tj/google-search-word-at-point
+
+C-c w s         w3m-search
+
+C-h <mode-line> <down-mouse-1>  mouse-help-on-mode-line-click
+
+C-h C-M-a       tags-apropos
+C-h M-a         apropos-documentation
+C-h M-c         describe-copying
+C-h M-f         describe-file
+C-h M-k         describe-keymap
+C-h M-l         find-function-on-key
+C-h M-o         pop-to-help-toggle
+
+C-h 4 i         info-other-window
+
+C-x C-k C-a     kmacro-add-counter
+C-x C-k C-c     kmacro-set-counter
+C-x C-k C-d     kmacro-delete-ring-head
+C-x C-k C-e     kmacro-edit-macro-repeat
+C-x C-k C-f     kmacro-set-format
+C-x C-k TAB     kmacro-insert-counter
+C-x C-k C-k     kmacro-end-or-call-macro-repeat
+C-x C-k C-l     kmacro-call-ring-2nd-repeat
+C-x C-k RET     kmacro-edit-macro
+C-x C-k C-n     kmacro-cycle-ring-next
+C-x C-k C-p     kmacro-cycle-ring-previous
+C-x C-k C-s     kmacro-start-macro
+C-x C-k C-t     kmacro-swap-ring
+C-x C-k C-v     kmacro-view-macro-repeat
+C-x C-k SPC     kmacro-step-edit-macro
+C-x C-k b       kmacro-bind-to-key
+C-x C-k e       edit-kbd-macro
+C-x C-k l       kmacro-edit-lossage
+C-x C-k n       kmacro-name-last-macro
+C-x C-k q       kbd-macro-query
+C-x C-k r       apply-macro-to-region-lines
+C-x C-k s       kmacro-start-macro
+
+C-x RET C-\     set-input-method
+C-x RET F       set-file-name-coding-system
+C-x RET X       set-next-selection-coding-system
+C-x RET c       universal-coding-system-argument
+C-x RET f       set-buffer-file-coding-system
+C-x RET k       set-keyboard-coding-system
+C-x RET l       set-language-environment
+C-x RET p       set-buffer-process-coding-system
+C-x RET r       revert-buffer-with-coding-system
+C-x RET t       set-terminal-coding-system
+C-x RET x       set-selection-coding-system
+
+C-x ESC ESC     repeat-complex-command
+C-x M-:         repeat-complex-command
+C-x M-f         ido-find-file-other-window
+
+C-x 4 C-f       find-file-other-window
+C-x 4 C-j       dired-jump-other-window
+C-x 4 C-o       display-buffer
+C-x 4 .         find-tag-other-window
+C-x 4 0         kill-buffer-and-window
+C-x 4 a         add-change-log-entry-other-window
+C-x 4 b         switch-to-buffer-other-window
+C-x 4 c         clone-indirect-buffer-other-window
+C-x 4 d         dired-other-window
+C-x 4 f         find-file-other-window
+C-x 4 m         compose-mail-other-window
+C-x 4 r         find-file-read-only-other-window
+
+C-x 5 C-f       find-file-other-frame
+C-x 5 C-o       display-buffer-other-frame
+C-x 5 .         find-tag-other-frame
+C-x 5 0         delete-frame
+C-x 5 1         delete-other-frames
+C-x 5 2         make-frame-command
+C-x 5 b         switch-to-buffer-other-frame
+C-x 5 d         dired-other-frame
+C-x 5 f         find-file-other-frame
+C-x 5 m         compose-mail-other-frame
+C-x 5 o         other-frame
+C-x 5 r         find-file-read-only-other-frame
+
+C-x 6 2         2C-two-columns
+C-x 6 b         2C-associate-buffer
+C-x 6 s         2C-split
+C-x 6 <f2>      2C-two-columns
+
+C-x 8 RET       ucs-insert
+
+C-x a C-a       add-mode-abbrev
+C-x a '         expand-abbrev
+C-x a +         add-mode-abbrev
+C-x a -         inverse-add-global-abbrev
+C-x a e         expand-abbrev
+C-x a g         add-global-abbrev
+C-x a i         Prefix Command
+C-x a l         add-mode-abbrev
+C-x a n         expand-jump-to-next-slot
+C-x a p         expand-jump-to-previous-slot
+
+C-x n b         org-narrow-to-block
+C-x n d         narrow-to-defun
+C-x n e         org-narrow-to-element
+C-x n n         narrow-to-region
+C-x n p         narrow-to-page
+C-x n r         narrow-to-region
+C-x n s         org-narrow-to-subtree
+C-x n w         widen
+
+C-x r C-@       point-to-register
+C-x r SPC       point-to-register
+C-x r +         increment-register
+C-x r N         rectangle-number-lines
+C-x r b         bookmark-jump
+C-x r c         clear-rectangle
+C-x r d         delete-rectangle
+C-x r f         frame-configuration-to-register
+C-x r g         insert-register
+C-x r i         insert-register
+C-x r j         jump-to-register
+C-x r k         kill-rectangle
+C-x r l         bookmark-bmenu-list
+C-x r m         bookmark-set
+C-x r n         number-to-register
+C-x r o         open-rectangle
+C-x r r         copy-rectangle-to-register
+C-x r s         copy-to-register
+C-x r t         string-rectangle
+C-x r w         window-configuration-to-register
+C-x r x         copy-to-register
+C-x r y         yank-rectangle
+C-x r C-SPC     point-to-register
+
+C-x v +         vc-update
+C-x v =         vc-diff
+C-x v D         vc-root-diff
+C-x v I         vc-log-incoming
+C-x v L         vc-print-root-log
+C-x v O         vc-log-outgoing
+C-x v a         vc-update-change-log
+C-x v b         vc-switch-backend
+C-x v c         vc-rollback
+C-x v d         vc-dir
+C-x v g         vc-annotate
+C-x v h         vc-insert-headers
+C-x v i         vc-register
+C-x v l         vc-print-log
+C-x v m         vc-merge
+C-x v r         vc-retrieve-tag
+C-x v s         vc-create-tag
+C-x v u         vc-revert
+C-x v v         vc-next-action
+C-x v ~         vc-revision-other-window
+
+M-s M-s         navi-switch-to-twin-buffer
+
+M-s h f         hi-lock-find-patterns
+M-s h l         highlight-lines-matching-regexp
+M-s h p         highlight-phrase
+M-s h r         highlight-regexp
+M-s h u         unhighlight-regexp
+M-s h w         hi-lock-write-interactive-patterns
+
+M-o M-S         center-paragraph
+M-o M-o         font-lock-fontify-block
+M-o M-s         center-line
+
+M-g M-g         goto-line
+M-g M-n         next-error
+M-g M-p         previous-error
+
+<C-down-mouse-2> <fc> b         facemenu-set-bold
+<C-down-mouse-2> <fc> d         facemenu-set-default
+<C-down-mouse-2> <fc> i         facemenu-set-italic
+<C-down-mouse-2> <fc> l         facemenu-set-bold-italic
+<C-down-mouse-2> <fc> o         facemenu-set-face
+<C-down-mouse-2> <fc> u         facemenu-set-underline
+
+<C-down-mouse-2> <fg> o         facemenu-set-foreground
+
+<C-down-mouse-2> <bg> o         facemenu-set-background
+
+<C-down-mouse-2> <sp> r         facemenu-set-read-only
+<C-down-mouse-2> <sp> s         facemenu-remove-special
+<C-down-mouse-2> <sp> t         facemenu-set-intangible
+<C-down-mouse-2> <sp> v         facemenu-set-invisible
+
+<C-down-mouse-2> <ju> b         set-justification-full
+<C-down-mouse-2> <ju> c         set-justification-center
+<C-down-mouse-2> <ju> l         set-justification-left
+<C-down-mouse-2> <ju> r         set-justification-right
+<C-down-mouse-2> <ju> u         set-justification-none
+
+<C-down-mouse-2> <in> <decrease-left-margin>
+                                decrease-left-margin
+<C-down-mouse-2> <in> <decrease-right-margin>
+                                decrease-right-margin
+<C-down-mouse-2> <in> <increase-left-margin>
+                                increase-left-margin
+<C-down-mouse-2> <in> <increase-right-margin>
+                                increase-right-margin
+
+<f1> <mode-line> <down-mouse-1>
+                                mouse-help-on-mode-line-click
+
+<f1> C-M-a      tags-apropos
+<f1> M-a        apropos-documentation
+<f1> M-c        describe-copying
+<f1> M-f        describe-file
+<f1> M-k        describe-keymap
+<f1> M-l        find-function-on-key
+<f1> M-o        pop-to-help-toggle
+
+<f1> 4 i        info-other-window
+
+<help> <mode-line> <down-mouse-1>
+                                mouse-help-on-mode-line-click
+
+<help> C-M-a    tags-apropos
+<help> M-a      apropos-documentation
+<help> M-c      describe-copying
+<help> M-f      describe-file
+<help> M-k      describe-keymap
+<help> M-l      find-function-on-key
+<help> M-o      pop-to-help-toggle
+
+<help> 4 i      info-other-window
+
+C-c g i t       magit-status
+
+C-x a i g       inverse-add-global-abbrev
+C-x a i l       inverse-add-mode-abbrev
+
+#+end_example
+
+* Unbound Keys
+
+Unbound keys with complexity at most 9
+
+#+begin_example
+| C-      | M-    | S-  | C-M- | [others] | C-S- |
+|---------+-------+-----+------+----------+------|
+| c M-a   | "     | RET | g    | <f1> j   | SPC  |
+| c M-c   | #     | TAB | q    | <f1> x   | a    |
+| c M-d   | ?     | RET | x    | <f1> y   | b    |
+| c e a   | g TAB | SPC | y    | <f1> z   | c    |
+| c e b   | g '   |     | z    | <f2> a   | d    |
+| c e c   | g ,   |     |      | <f2> c   | e    |
+| c e d   | g -   |     |      | <f2> d   | f    |
+| c e e   | g .   |     |      | <f2> e   | g    |
+| c e f   | g /   |     |      | <f2> f   | h    |
+| c e g   | g ;   |     |      | <f2> g   | j    |
+| c e h   | g =   |     |      | <f2> h   | k    |
+| c e i   | g [   |     |      | <f2> i   | l    |
+| c e j   | g \   |     |      | <f2> j   | o    |
+| c e k   | g ]   |     |      | <f2> k   | q    |
+| c e l   | g `   |     |      | <f2> l   | r    |
+| c e m   | g C-a |     |      | <f2> m   | s    |
+| c e n   | g C-b |     |      | <f2> n   | t    |
+| c e o   | g C-c |     |      | <f2> o   | u    |
+| c e p   | g C-d |     |      | <f2> p   | w    |
+| c e q   | g C-e |     |      | <f2> q   | x    |
+| c e r   | g C-f |     |      | <f2> r   | y    |
+| c e s   | g C-g |     |      | <f2> t   | z    |
+| c e t   | g C-h |     |      | <f2> u   |      |
+| c e u   | g TAB |     |      | <f2> v   |      |
+| c e v   | g C-j |     |      | <f2> w   |      |
+| c e x   | g C-k |     |      | <f2> x   |      |
+| c e y   | g C-l |     |      | <f2> y   |      |
+| c e z   | g RET |     |      | <f2> z   |      |
+| c M-e   | g C-n |     |      | <f9> a   |      |
+| c g b   | g C-o |     |      | <f9> d   |      |
+| c g c   | g C-p |     |      | <f9> e   |      |
+| c g d   | g C-q |     |      | <f9> i   |      |
+| c g e   | g C-r |     |      | <f9> j   |      |
+| c g f   | g C-s |     |      | <f9> k   |      |
+| c g h   | g C-t |     |      | <f9> l   |      |
+| c g j   | g C-u |     |      | <f9> m   |      |
+| c g k   | g C-v |     |      | <f9> q   |      |
+| c g l   | g C-w |     |      | <f9> x   |      |
+| c g m   | g C-x |     |      | <f9> z   |      |
+| c g n   | g C-y |     |      |          |      |
+| c g o   | g C-z |     |      |          |      |
+| c g p   | o TAB |     |      |          |      |
+| c g q   | o '   |     |      |          |      |
+| c g s   | o ,   |     |      |          |      |
+| c g t   | o -   |     |      |          |      |
+| c g v   | o .   |     |      |          |      |
+| c g x   | o /   |     |      |          |      |
+| c g y   | o ;   |     |      |          |      |
+| c g z   | o =   |     |      |          |      |
+| c M-g   | o [   |     |      |          |      |
+| c M-h   | o \   |     |      |          |      |
+| c M-i   | o ]   |     |      |          |      |
+| c M-j   | o `   |     |      |          |      |
+| c M-k   | o C-a |     |      |          |      |
+| c M-l   | o C-b |     |      |          |      |
+| c M-m   | o C-c |     |      |          |      |
+| c M-n   | o C-d |     |      |          |      |
+| c M-p   | o C-e |     |      |          |      |
+| c M-q   | o C-f |     |      |          |      |
+| c M-r   | o C-g |     |      |          |      |
+| c M-s   | o C-h |     |      |          |      |
+| c M-t   | o TAB |     |      |          |      |
+| c M-u   | o C-j |     |      |          |      |
+| c M-v   | o C-k |     |      |          |      |
+| c w a   | o C-l |     |      |          |      |
+| c w b   | o RET |     |      |          |      |
+| c w c   | o C-n |     |      |          |      |
+| c w d   | o C-o |     |      |          |      |
+| c w e   | o C-p |     |      |          |      |
+| c w f   | o C-q |     |      |          |      |
+| c w g   | o C-r |     |      |          |      |
+| c w h   | o C-s |     |      |          |      |
+| c w i   | o C-t |     |      |          |      |
+| c w j   | o C-u |     |      |          |      |
+| c w k   | o C-v |     |      |          |      |
+| c w l   | o C-w |     |      |          |      |
+| c w m   | o C-x |     |      |          |      |
+| c w n   | o C-y |     |      |          |      |
+| c w o   | o C-z |     |      |          |      |
+| c w p   | s TAB |     |      |          |      |
+| c w q   | s '   |     |      |          |      |
+| c w r   | s ,   |     |      |          |      |
+| c w t   | s -   |     |      |          |      |
+| c w u   | s .   |     |      |          |      |
+| c w v   | s /   |     |      |          |      |
+| c w w   | s ;   |     |      |          |      |
+| c w x   | s =   |     |      |          |      |
+| c w y   | s [   |     |      |          |      |
+| c w z   | s \   |     |      |          |      |
+| c x a   | s ]   |     |      |          |      |
+| c x b   | s `   |     |      |          |      |
+| c x e   | s C-a |     |      |          |      |
+| c x f   | s C-b |     |      |          |      |
+| c x g   | s C-c |     |      |          |      |
+| c x h   | s C-d |     |      |          |      |
+| c x i   | s C-e |     |      |          |      |
+| c x j   | s C-f |     |      |          |      |
+| c x k   | s C-g |     |      |          |      |
+| c x l   | s C-h |     |      |          |      |
+| c x m   | s TAB |     |      |          |      |
+| c x n   | s C-j |     |      |          |      |
+| c x o   | s C-k |     |      |          |      |
+| c x p   | s C-l |     |      |          |      |
+| c x q   | s RET |     |      |          |      |
+| c x r   | s C-n |     |      |          |      |
+| c x s   | s C-o |     |      |          |      |
+| c x t   | s C-p |     |      |          |      |
+| c x u   | s C-q |     |      |          |      |
+| c x v   | s C-r |     |      |          |      |
+| c x w   | s C-s |     |      |          |      |
+| c x x   | s C-t |     |      |          |      |
+| c x y   | s C-u |     |      |          |      |
+| c x z   | s C-v |     |      |          |      |
+| c M-x   | s C-w |     |      |          |      |
+| c M-y   | s C-x |     |      |          |      |
+| c M-z   | s C-y |     |      |          |      |
+| h C-SPC | s C-z |     |      |          |      |
+| h M-b   | g 0   |     |      |          |      |
+| h M-d   | g 1   |     |      |          |      |
+| h M-e   | g 2   |     |      |          |      |
+| h M-g   | g 3   |     |      |          |      |
+| h M-h   | g 4   |     |      |          |      |
+| h M-i   | g 5   |     |      |          |      |
+| h M-j   | g 6   |     |      |          |      |
+| h M-m   | g 7   |     |      |          |      |
+| h M-n   | g 8   |     |      |          |      |
+| h M-p   | g 9   |     |      |          |      |
+| h M-q   | o 0   |     |      |          |      |
+| h M-r   | o 1   |     |      |          |      |
+| h M-s   | o 2   |     |      |          |      |
+| h M-t   | o 3   |     |      |          |      |
+| h M-u   | o 4   |     |      |          |      |
+| h M-v   | o 5   |     |      |          |      |
+| h M-w   | o 6   |     |      |          |      |
+| h M-x   | o 7   |     |      |          |      |
+| h M-y   | o 8   |     |      |          |      |
+| h M-z   | o 9   |     |      |          |      |
+| x a a   | s 0   |     |      |          |      |
+| x a b   | s 1   |     |      |          |      |
+| x a c   | s 2   |     |      |          |      |
+| x a d   | s 3   |     |      |          |      |
+| x a f   | s 4   |     |      |          |      |
+| x a h   | s 5   |     |      |          |      |
+| x a j   | s 6   |     |      |          |      |
+| x a k   | s 7   |     |      |          |      |
+| x a m   | s 8   |     |      |          |      |
+| x a o   | s 9   |     |      |          |      |
+| x a q   | [     |     |      |          |      |
+| x a r   | ]     |     |      |          |      |
+| x a s   | g RET |     |      |          |      |
+| x a t   | g SPC |     |      |          |      |
+| x a u   | o RET |     |      |          |      |
+| x a v   | o SPC |     |      |          |      |
+| x a w   | s RET |     |      |          |      |
+| x a x   | s SPC |     |      |          |      |
+| x a y   | g a   |     |      |          |      |
+| x a z   | g b   |     |      |          |      |
+| x M-a   | g c   |     |      |          |      |
+| x M-b   | g d   |     |      |          |      |
+| x M-c   | g e   |     |      |          |      |
+| x M-d   | g f   |     |      |          |      |
+| x M-e   | g h   |     |      |          |      |
+| x M-g   | g i   |     |      |          |      |
+| x M-h   | g j   |     |      |          |      |
+| x M-i   | g k   |     |      |          |      |
+| x M-j   | g l   |     |      |          |      |
+| x M-k   | g m   |     |      |          |      |
+| x M-l   | g o   |     |      |          |      |
+| x M-m   | g q   |     |      |          |      |
+| x n a   | g r   |     |      |          |      |
+| x n c   | g s   |     |      |          |      |
+| x n f   | g t   |     |      |          |      |
+| x n g   | g u   |     |      |          |      |
+| x n h   | g v   |     |      |          |      |
+| x n i   | g x   |     |      |          |      |
+| x n j   | g y   |     |      |          |      |
+| x n k   | g z   |     |      |          |      |
+| x n l   | o a   |     |      |          |      |
+| x n m   | o c   |     |      |          |      |
+| x n o   | o e   |     |      |          |      |
+| x n q   | o f   |     |      |          |      |
+| x n t   | o g   |     |      |          |      |
+| x n u   | o h   |     |      |          |      |
+| x n v   | o j   |     |      |          |      |
+| x n x   | o k   |     |      |          |      |
+| x n y   | o m   |     |      |          |      |
+| x n z   | o n   |     |      |          |      |
+| x M-n   | o p   |     |      |          |      |
+| x M-o   | o q   |     |      |          |      |
+| x M-p   | o r   |     |      |          |      |
+| x M-q   | o s   |     |      |          |      |
+| x r a   | o t   |     |      |          |      |
+| x r e   | o v   |     |      |          |      |
+| x r h   | o w   |     |      |          |      |
+| x r p   | o x   |     |      |          |      |
+| x r q   | o y   |     |      |          |      |
+| x r v   | o z   |     |      |          |      |
+| x r z   | s a   |     |      |          |      |
+| x M-r   | s b   |     |      |          |      |
+| x M-s   | s c   |     |      |          |      |
+| x M-t   | s d   |     |      |          |      |
+| x M-u   | s e   |     |      |          |      |
+| x v e   | s f   |     |      |          |      |
+| x v f   | s g   |     |      |          |      |
+| x v j   | s i   |     |      |          |      |
+| x v k   | s j   |     |      |          |      |
+| x v n   | s k   |     |      |          |      |
+| x v o   | s l   |     |      |          |      |
+| x v p   | s m   |     |      |          |      |
+| x v q   | s p   |     |      |          |      |
+| x v t   | s q   |     |      |          |      |
+| x v w   | s r   |     |      |          |      |
+| x v x   | s t   |     |      |          |      |
+| x v y   | s u   |     |      |          |      |
+| x v z   | s v   |     |      |          |      |
+| x M-v   | s x   |     |      |          |      |
+| x M-w   | s y   |     |      |          |      |
+| x M-x   | s z   |     |      |          |      |
+| x M-y   |       |     |      |          |      |
+| x M-z   |       |     |      |          |      |
+| !       |       |     |      |          |      |
+| "       |       |     |      |          |      |
+| [$]     |       |     |      |          |      |
+| %       |       |     |      |          |      |
+| &       |       |     |      |          |      |
+| (       |       |     |      |          |      |
+| )       |       |     |      |          |      |
+| +       |       |     |      |          |      |
+| :       |       |     |      |          |      |
+| <       |       |     |      |          |      |
+| >       |       |     |      |          |      |
+| ^       |       |     |      |          |      |
+| c TAB   |       |     |      |          |      |
+| c C-g   |       |     |      |          |      |
+| c C-h   |       |     |      |          |      |
+| c TAB   |       |     |      |          |      |
+| c C-n   |       |     |      |          |      |
+| c C-p   |       |     |      |          |      |
+| c C-u   |       |     |      |          |      |
+| h TAB   |       |     |      |          |      |
+| h '     |       |     |      |          |      |
+| h ,     |       |     |      |          |      |
+| h -     |       |     |      |          |      |
+| h /     |       |     |      |          |      |
+| h ;     |       |     |      |          |      |
+| h =     |       |     |      |          |      |
+| h [     |       |     |      |          |      |
+| h \     |       |     |      |          |      |
+| h ]     |       |     |      |          |      |
+| h `     |       |     |      |          |      |
+| h C-b   |       |     |      |          |      |
+| h C-g   |       |     |      |          |      |
+| h TAB   |       |     |      |          |      |
+| h C-j   |       |     |      |          |      |
+| h C-k   |       |     |      |          |      |
+| h C-q   |       |     |      |          |      |
+| h C-r   |       |     |      |          |      |
+| h C-s   |       |     |      |          |      |
+| h C-u   |       |     |      |          |      |
+| h C-v   |       |     |      |          |      |
+| h C-x   |       |     |      |          |      |
+| h C-y   |       |     |      |          |      |
+| h C-z   |       |     |      |          |      |
+| x ,     |       |     |      |          |      |
+| x /     |       |     |      |          |      |
+| x \     |       |     |      |          |      |
+| x C-a   |       |     |      |          |      |
+| x C-g   |       |     |      |          |      |
+| x C-h   |       |     |      |          |      |
+| x C-y   |       |     |      |          |      |
+| {       |       |     |      |          |      |
+| \vert   |       |     |      |          |      |
+| }       |       |     |      |          |      |
+| ~       |       |     |      |          |      |
+| DEL     |       |     |      |          |      |
+| c 0     |       |     |      |          |      |
+| c 1     |       |     |      |          |      |
+| c 2     |       |     |      |          |      |
+| c 3     |       |     |      |          |      |
+| c 4     |       |     |      |          |      |
+| c 5     |       |     |      |          |      |
+| c 6     |       |     |      |          |      |
+| c 7     |       |     |      |          |      |
+| c 8     |       |     |      |          |      |
+| c 9     |       |     |      |          |      |
+| h 0     |       |     |      |          |      |
+| h 1     |       |     |      |          |      |
+| h 2     |       |     |      |          |      |
+| h 3     |       |     |      |          |      |
+| h 5     |       |     |      |          |      |
+| h 6     |       |     |      |          |      |
+| h 7     |       |     |      |          |      |
+| h 8     |       |     |      |          |      |
+| h 9     |       |     |      |          |      |
+| x 7     |       |     |      |          |      |
+| x 9     |       |     |      |          |      |
+| .       |       |     |      |          |      |
+| ;       |       |     |      |          |      |
+| =       |       |     |      |          |      |
+| `       |       |     |      |          |      |
+| h SPC   |       |     |      |          |      |
+| x SPC   |       |     |      |          |      |
+| c c     |       |     |      |          |      |
+| c d     |       |     |      |          |      |
+| c h     |       |     |      |          |      |
+| c i     |       |     |      |          |      |
+| c j     |       |     |      |          |      |
+| c k     |       |     |      |          |      |
+| c n     |       |     |      |          |      |
+| c o     |       |     |      |          |      |
+| c p     |       |     |      |          |      |
+| c q     |       |     |      |          |      |
+| c s     |       |     |      |          |      |
+| c t     |       |     |      |          |      |
+| c u     |       |     |      |          |      |
+| c y     |       |     |      |          |      |
+| c z     |       |     |      |          |      |
+| h j     |       |     |      |          |      |
+| h x     |       |     |      |          |      |
+| h y     |       |     |      |          |      |
+| h z     |       |     |      |          |      |
+| x c     |       |     |      |          |      |
+| x g     |       |     |      |          |      |
+| x j     |       |     |      |          |      |
+| x p     |       |     |      |          |      |
+| x w     |       |     |      |          |      |
+| x y     |       |     |      |          |      |
+
+#+end_example
