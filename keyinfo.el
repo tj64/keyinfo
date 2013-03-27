@@ -169,61 +169,62 @@ saved manually."
          (mode (or mode major-mode))
          (mode-strg (if (stringp mode) mode (symbol-name mode)))
          (outbuffer
-          (or out
-              (find-file-noselect
-               (expand-file-name
-                (concat
-                 "keyinfo-"
-                 mode-strg
-                 ".org")
-                (uniquify-buffer-file-name (current-buffer))))))
-         (map (intern (concat mode-strg "-map")))
-         (unbound-keys-array nil))
-    (if (not (boundp map))
-        (message "Mode map %s not bound." map)
-      ;; create *Help* buffer with human readable keymap-info
-      (describe-keymap map)
-      (with-current-buffer outbuffer
-        (erase-buffer)
-        ;; create title and outline structure
-        (insert
-         "#+TITLE "
-         (format "Keyinfo %s\n" (upcase (symbol-name map)))
-         "#+DATE "
-         (format "%s\n\n" (time-stamp-string))
-         "\\Human readable keymap and unbound keys\\\n\n"
-         "* Keymap\n\n"
-         "* Unbound Keys\n\n")
-        ;; insert *Help* buffer keymap-info into EXAMPLE block
-        (goto-char
-         (org-find-exact-headline-in-buffer "Keymap" nil 'POS-ONLY))
-        (forward-line 2)
-        (insert "#+begin_example\n")
-        (insert-buffer-substring-no-properties "*Help*")
-        (kill-buffer "*Help*")
-        (newline)
-        (insert "#+end_example\n\n")
-        ;; insert compact Org-mode table with unbound keys
-        (goto-char
-         (org-find-exact-headline-in-buffer "Unbound Keys" nil 'POS-ONLY))
-        (forward-line 2)
-        (insert
-         (format "Unbound keys with complexity at most %d\n\n" complexity))
-        (insert "#+begin_example\n")
-        (insert (keyinfo-make-unbound-key-table complexity))
-        (newline)
-        (insert "#+end_example\n")
-        (save-buffer)
-        ;; (optionally) create and display ASCII buffer with keyinfo
-        (or
-         (and ascii
-              (display-buffer
-               (org-export-to-buffer
-                'ascii
-                (concat (car (split-string (buffer-name) ".org" 'OMIT-NULLS))
-                        ":ASCII"))))
-         ;; or display Org output buffer
-         (display-buffer (current-buffer)))))))
+          (find-file-noselect
+           (expand-file-name
+            (concat
+             (if out
+                 (car (split-string out ".org" 'OMIT-NULLS))
+               (concat "keyinfo-" mode-strg))
+             ".org")
+            (uniquify-buffer-file-name (current-buffer)))))
+    (map (intern (concat mode-strg "-map")))
+    (unbound-keys-array nil))
+  (if (not (boundp map))
+      (message "Mode map %s not bound." map)
+    ;; create *Help* buffer with human readable keymap-info
+    (describe-keymap map)
+    (with-current-buffer outbuffer
+      (erase-buffer)
+      (org-mode)
+      ;; create title and outline structure
+      (insert
+       "#+TITLE "
+       (format "Keyinfo %s\n" (upcase (symbol-name map)))
+       "#+DATE "
+       (format "%s\n\n" (time-stamp-string))
+       "\\Human readable keymap and unbound keys\\\n\n"
+       "* Keymap\n\n"
+       "* Unbound Keys\n\n")
+      ;; insert *Help* buffer keymap-info into EXAMPLE block
+      (goto-char
+       (org-find-exact-headline-in-buffer "Keymap" nil 'POS-ONLY))
+      (forward-line 2)
+      (insert "#+begin_example\n")
+      (insert-buffer-substring-no-properties "*Help*")
+      (kill-buffer "*Help*")
+      (newline)
+      (insert "#+end_example\n\n")
+      ;; insert compact Org-mode table with unbound keys
+      (goto-char
+       (org-find-exact-headline-in-buffer "Unbound Keys" nil 'POS-ONLY))
+      (forward-line 2)
+      (insert
+       (format "Unbound keys with complexity at most %d\n\n" complexity))
+      (insert "#+begin_example\n")
+      (insert (keyinfo-make-unbound-key-table complexity))
+      (newline)
+      (insert "#+end_example\n")
+      (save-buffer)
+      ;; (optionally) create and display ASCII buffer with keyinfo
+      (or
+       (and ascii
+            (display-buffer
+             (org-export-to-buffer
+              'ascii
+              (concat (car (split-string (buffer-name) ".org" 'OMIT-NULLS))
+                      ":ASCII"))))
+       ;; or display Org output buffer
+       (display-buffer (current-buffer)))))))
 
 ;; ** Commands
 
