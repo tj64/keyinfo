@@ -1,0 +1,500 @@
+#+TITLE Keyinfo COMINT-MODE-MAP
+#+DATE 2013-03-27 Mit 20:11 tj on hostname
+
+\Human readable keymap and unbound keys\
+
+* Keymap
+
+#+begin_example
+comint-mode-map
+---------------
+
+
+
+For more information check the manuals.
+
+Keymap for `comint-mode'.
+
+key             binding
+---             -------
+
+C-c             Prefix Command
+C-d             comint-delchar-or-maybe-eof
+RET             comint-send-input
+ESC             Prefix Command
+<C-down>        comint-next-input
+<C-up>          comint-previous-input
+<delete>        delete-char
+<kp-delete>     delete-char
+<mouse-2>       comint-insert-input
+
+C-c C-a         comint-bol-or-process-mark
+C-c C-c         comint-interrupt-subjob
+C-c C-d         comint-send-eof
+C-c C-e         comint-show-maximum-output
+C-c C-l         comint-dynamic-list-input-ring
+C-c RET         comint-copy-old-input
+C-c C-n         comint-next-prompt
+C-c C-o         comint-delete-output
+C-c C-p         comint-previous-prompt
+C-c C-r         comint-show-output
+C-c C-s         comint-write-output
+C-c C-u         comint-kill-input
+C-c C-w         backward-kill-word
+C-c C-x         comint-get-next-from-history
+C-c C-z         comint-stop-subjob
+C-c ESC         Prefix Command
+C-c C-\         comint-quit-subjob
+C-c SPC         comint-accumulate
+C-c .           comint-insert-previous-argument
+
+C-M-l           comint-show-output
+M-n             comint-next-input
+M-p             comint-previous-input
+M-r             comint-history-isearch-backward-regexp
+
+C-c M-r         comint-previous-matching-input-from-input
+C-c M-s         comint-next-matching-input-from-input
+
+#+end_example
+
+* Unbound Keys
+
+Unbound keys with complexity at most 10
+
+#+begin_example
+| C-      | M-      | S-  | C-M- | [others] | C-S- | M-S- |
+|---------+---------+-----+------+----------+------+------|
+| c M-RET | A       | ESC | '    | <f1> SPC | SPC  | RET  |
+| c M-SPC | B       | DEL | ,    | <C-f1>   | a    | SPC  |
+| c "     | C       | RET | ;    | <f2> RET | b    |      |
+| c (     | D       | TAB | =    | <f2> SPC | c    |      |
+| c )     | E       | RET | ]    | <C-f2>   | d    |      |
+| c C-0   | F       | SPC | `    | <C-f3>   | e    |      |
+| c C-1   | G       |     | g    | <C-f4>   | f    |      |
+| c C-2   | H       |     | q    | <C-f7>   | g    |      |
+| c C-3   | I       |     | x    | <C-f8>   | h    |      |
+| c C-4   | J       |     | y    | <f9> RET | j    |      |
+| c C-5   | K       |     | z    | <C-f12>  | k    |      |
+| c C-6   | L       |     |      | <f1> j   | l    |      |
+| c C-7   | M       |     |      | <f1> x   | o    |      |
+| c C-8   | N       |     |      | <f1> y   | q    |      |
+| c C-9   | O       |     |      | <f1> z   | r    |      |
+| c _     | P       |     |      | <f2> a   | s    |      |
+| c e RET | Q       |     |      | <f2> c   | t    |      |
+| c e SPC | R       |     |      | <f2> d   | u    |      |
+| c g SPC | S       |     |      | <f2> e   | w    |      |
+| c w RET | T       |     |      | <f2> f   | x    |      |
+| c w SPC | U       |     |      | <f2> g   | y    |      |
+| c x RET | V       |     |      | <f2> h   | z    |      |
+| c x SPC | W       |     |      | <f2> i   |      |      |
+| c DEL   | Y       |     |      | <f2> j   |      |      |
+| h M-RET | Z       |     |      | <f2> k   |      |      |
+| h M-SPC | g RET   |     |      | <f2> l   |      |      |
+| h !     | g C-SPC |     |      | <f2> m   |      |      |
+| h "     | g M-a   |     |      | <f2> n   |      |      |
+| h #     | g M-b   |     |      | <f2> o   |      |      |
+| h $     | g M-c   |     |      | <f2> p   |      |      |
+| h %     | g M-d   |     |      | <f2> q   |      |      |
+| h &     | g M-e   |     |      | <f2> r   |      |      |
+| h (     | g M-f   |     |      | <f2> t   |      |      |
+| h )     | g M-h   |     |      | <f2> u   |      |      |
+| h *     | g M-i   |     |      | <f2> v   |      |      |
+| h +     | g M-j   |     |      | <f2> w   |      |      |
+| h C-0   | g M-k   |     |      | <f2> x   |      |      |
+| h C-1   | g M-l   |     |      | <f2> y   |      |      |
+| h C-2   | g M-m   |     |      | <f2> z   |      |      |
+| h C-3   | g M-o   |     |      | <f9> a   |      |      |
+| h C-4   | g M-q   |     |      | <f9> d   |      |      |
+| h C-5   | g M-r   |     |      | <f9> e   |      |      |
+| h C-6   | g M-s   |     |      | <f9> i   |      |      |
+| h C-7   | g M-t   |     |      | <f9> j   |      |      |
+| h C-8   | g M-u   |     |      | <f9> k   |      |      |
+| h C-9   | g M-v   |     |      | <f9> l   |      |      |
+| h :     | g M-w   |     |      | <f9> m   |      |      |
+| h <     | g M-x   |     |      | <f9> q   |      |      |
+| h >     | g M-y   |     |      | <f9> x   |      |      |
+| h @     | g M-z   |     |      | <f9> z   |      |      |
+| h ^     | o RET   |     |      |          |      |      |
+| h _     | o C-SPC |     |      |          |      |      |
+| h {     | o M-a   |     |      |          |      |      |
+| h \vert | o M-b   |     |      |          |      |      |
+| h }     | o M-c   |     |      |          |      |      |
+| h ~     | o M-d   |     |      |          |      |      |
+| h DEL   | o M-e   |     |      |          |      |      |
+| x RET a | o M-f   |     |      |          |      |      |
+| x RET b | o M-g   |     |      |          |      |      |
+| x RET d | o M-h   |     |      |          |      |      |
+| x RET e | o M-i   |     |      |          |      |      |
+| x RET g | o M-j   |     |      |          |      |      |
+| x RET h | o M-k   |     |      |          |      |      |
+| x RET i | o M-l   |     |      |          |      |      |
+| x RET j | o M-m   |     |      |          |      |      |
+| x RET m | o M-n   |     |      |          |      |      |
+| x RET n | o M-p   |     |      |          |      |      |
+| x RET o | o M-q   |     |      |          |      |      |
+| x RET q | o M-r   |     |      |          |      |      |
+| x RET s | o M-t   |     |      |          |      |      |
+| x RET u | o M-u   |     |      |          |      |      |
+| x RET v | o M-v   |     |      |          |      |      |
+| x RET w | o M-w   |     |      |          |      |      |
+| x RET y | o M-x   |     |      |          |      |      |
+| x RET z | o M-y   |     |      |          |      |      |
+| x M-RET | o M-z   |     |      |          |      |      |
+| x M-SPC | s RET   |     |      |          |      |      |
+| x !     | s C-SPC |     |      |          |      |      |
+| x "     | s M-a   |     |      |          |      |      |
+| x #     | s M-b   |     |      |          |      |      |
+| x %     | s M-c   |     |      |          |      |      |
+| x &     | s M-d   |     |      |          |      |      |
+| x C-1   | s M-e   |     |      |          |      |      |
+| x C-2   | s M-f   |     |      |          |      |      |
+| x C-3   | s M-g   |     |      |          |      |      |
+| x C-4   | s h a   |     |      |          |      |      |
+| x C-5   | s h b   |     |      |          |      |      |
+| x C-6   | s h c   |     |      |          |      |      |
+| x C-7   | s h d   |     |      |          |      |      |
+| x C-8   | s h e   |     |      |          |      |      |
+| x C-9   | s h g   |     |      |          |      |      |
+| x :     | s h h   |     |      |          |      |      |
+| x ?     | s h i   |     |      |          |      |      |
+| x @     | s h j   |     |      |          |      |      |
+| x _     | s h k   |     |      |          |      |      |
+| x a RET | s h m   |     |      |          |      |      |
+| x a SPC | s h n   |     |      |          |      |      |
+| x n RET | s h o   |     |      |          |      |      |
+| x n SPC | s h q   |     |      |          |      |      |
+| x r RET | s h s   |     |      |          |      |      |
+| x v RET | s h t   |     |      |          |      |      |
+| x v SPC | s h v   |     |      |          |      |      |
+| x \vert | s h x   |     |      |          |      |      |
+| x ~     | s h y   |     |      |          |      |      |
+| c M-a   | s h z   |     |      |          |      |      |
+| c M-c   | s M-h   |     |      |          |      |      |
+| c M-d   | s M-i   |     |      |          |      |      |
+| c e a   | s M-j   |     |      |          |      |      |
+| c e b   | s M-k   |     |      |          |      |      |
+| c e c   | s M-l   |     |      |          |      |      |
+| c e d   | s M-m   |     |      |          |      |      |
+| c e e   | s M-n   |     |      |          |      |      |
+| c e f   | s M-o   |     |      |          |      |      |
+| c e g   | s M-p   |     |      |          |      |      |
+| c e h   | s M-q   |     |      |          |      |      |
+| c e i   | s M-r   |     |      |          |      |      |
+| c e j   | s M-t   |     |      |          |      |      |
+| c e k   | s M-u   |     |      |          |      |      |
+| c e l   | s M-v   |     |      |          |      |      |
+| c e m   | s M-w   |     |      |          |      |      |
+| c e n   | s M-x   |     |      |          |      |      |
+| c e o   | s M-y   |     |      |          |      |      |
+| c e p   | s M-z   |     |      |          |      |      |
+| c e q   | "       |     |      |          |      |      |
+| c e r   | #       |     |      |          |      |      |
+| c e s   | ?       |     |      |          |      |      |
+| c e t   | g TAB   |     |      |          |      |      |
+| c e u   | g '     |     |      |          |      |      |
+| c e v   | g ,     |     |      |          |      |      |
+| c e x   | g -     |     |      |          |      |      |
+| c e y   | g .     |     |      |          |      |      |
+| c e z   | g /     |     |      |          |      |      |
+| c M-e   | g ;     |     |      |          |      |      |
+| c g b   | g =     |     |      |          |      |      |
+| c g c   | g [     |     |      |          |      |      |
+| c g d   | g \     |     |      |          |      |      |
+| c g e   | g ]     |     |      |          |      |      |
+| c g f   | g `     |     |      |          |      |      |
+| c g h   | g C-a   |     |      |          |      |      |
+| c g j   | g C-b   |     |      |          |      |      |
+| c g k   | g C-c   |     |      |          |      |      |
+| c g l   | g C-d   |     |      |          |      |      |
+| c g m   | g C-e   |     |      |          |      |      |
+| c g n   | g C-f   |     |      |          |      |      |
+| c g o   | g C-g   |     |      |          |      |      |
+| c g p   | g C-h   |     |      |          |      |      |
+| c g q   | g TAB   |     |      |          |      |      |
+| c g s   | g C-j   |     |      |          |      |      |
+| c g t   | g C-k   |     |      |          |      |      |
+| c g v   | g C-l   |     |      |          |      |      |
+| c g x   | g RET   |     |      |          |      |      |
+| c g y   | g C-n   |     |      |          |      |      |
+| c g z   | g C-o   |     |      |          |      |      |
+| c M-g   | g C-p   |     |      |          |      |      |
+| c M-h   | g C-q   |     |      |          |      |      |
+| c M-i   | g C-r   |     |      |          |      |      |
+| c M-j   | g C-s   |     |      |          |      |      |
+| c M-k   | g C-t   |     |      |          |      |      |
+| c M-l   | g C-u   |     |      |          |      |      |
+| c M-m   | g C-v   |     |      |          |      |      |
+| c M-n   | g C-w   |     |      |          |      |      |
+| c M-p   | g C-x   |     |      |          |      |      |
+| c M-q   | g C-y   |     |      |          |      |      |
+| c M-r   | g C-z   |     |      |          |      |      |
+| c M-s   | o TAB   |     |      |          |      |      |
+| c M-t   | o '     |     |      |          |      |      |
+| c M-u   | o ,     |     |      |          |      |      |
+| c M-v   | o -     |     |      |          |      |      |
+| c w a   | o .     |     |      |          |      |      |
+| c w b   | o /     |     |      |          |      |      |
+| c w c   | o ;     |     |      |          |      |      |
+| c w d   | o =     |     |      |          |      |      |
+| c w e   | o [     |     |      |          |      |      |
+| c w f   | o \     |     |      |          |      |      |
+| c w g   | o ]     |     |      |          |      |      |
+| c w h   | o `     |     |      |          |      |      |
+| c w i   | o C-a   |     |      |          |      |      |
+| c w j   | o C-b   |     |      |          |      |      |
+| c w k   | o C-c   |     |      |          |      |      |
+| c w l   | o C-d   |     |      |          |      |      |
+| c w m   | o C-e   |     |      |          |      |      |
+| c w n   | o C-f   |     |      |          |      |      |
+| c w o   | o C-g   |     |      |          |      |      |
+| c w p   | o C-h   |     |      |          |      |      |
+| c w q   | o TAB   |     |      |          |      |      |
+| c w r   | o C-j   |     |      |          |      |      |
+| c w t   | o C-k   |     |      |          |      |      |
+| c w u   | o C-l   |     |      |          |      |      |
+| c w v   | o RET   |     |      |          |      |      |
+| c w w   | o C-n   |     |      |          |      |      |
+| c w x   | o C-o   |     |      |          |      |      |
+| c w y   | o C-p   |     |      |          |      |      |
+| c w z   | o C-q   |     |      |          |      |      |
+| c x a   | o C-r   |     |      |          |      |      |
+| c x b   | o C-s   |     |      |          |      |      |
+| c x e   | o C-t   |     |      |          |      |      |
+| c x f   | o C-u   |     |      |          |      |      |
+| c x g   | o C-v   |     |      |          |      |      |
+| c x h   | o C-w   |     |      |          |      |      |
+| c x i   | o C-x   |     |      |          |      |      |
+| c x j   | o C-y   |     |      |          |      |      |
+| c x k   | o C-z   |     |      |          |      |      |
+| c x l   | s TAB   |     |      |          |      |      |
+| c x m   | s '     |     |      |          |      |      |
+| c x n   | s ,     |     |      |          |      |      |
+| c x o   | s -     |     |      |          |      |      |
+| c x p   | s .     |     |      |          |      |      |
+| c x q   | s /     |     |      |          |      |      |
+| c x r   | s ;     |     |      |          |      |      |
+| c x s   | s =     |     |      |          |      |      |
+| c x t   | s [     |     |      |          |      |      |
+| c x u   | s \     |     |      |          |      |      |
+| c x v   | s ]     |     |      |          |      |      |
+| c x w   | s `     |     |      |          |      |      |
+| c x x   | s C-a   |     |      |          |      |      |
+| c x y   | s C-b   |     |      |          |      |      |
+| c x z   | s C-c   |     |      |          |      |      |
+| c M-x   | s C-d   |     |      |          |      |      |
+| c M-y   | s C-e   |     |      |          |      |      |
+| c M-z   | s C-f   |     |      |          |      |      |
+| h C-SPC | s C-g   |     |      |          |      |      |
+| h M-b   | s C-h   |     |      |          |      |      |
+| h M-d   | s TAB   |     |      |          |      |      |
+| h M-e   | s C-j   |     |      |          |      |      |
+| h M-g   | s C-k   |     |      |          |      |      |
+| h M-h   | s C-l   |     |      |          |      |      |
+| h M-i   | s RET   |     |      |          |      |      |
+| h M-j   | s C-n   |     |      |          |      |      |
+| h M-m   | s C-o   |     |      |          |      |      |
+| h M-n   | s C-p   |     |      |          |      |      |
+| h M-p   | s C-q   |     |      |          |      |      |
+| h M-q   | s C-r   |     |      |          |      |      |
+| h M-r   | s C-s   |     |      |          |      |      |
+| h M-s   | s C-t   |     |      |          |      |      |
+| h M-t   | s C-u   |     |      |          |      |      |
+| h M-u   | s C-v   |     |      |          |      |      |
+| h M-v   | s C-w   |     |      |          |      |      |
+| h M-w   | s C-x   |     |      |          |      |      |
+| h M-x   | s C-y   |     |      |          |      |      |
+| h M-y   | s C-z   |     |      |          |      |      |
+| h M-z   | g 0     |     |      |          |      |      |
+| x a a   | g 1     |     |      |          |      |      |
+| x a b   | g 2     |     |      |          |      |      |
+| x a c   | g 3     |     |      |          |      |      |
+| x a d   | g 4     |     |      |          |      |      |
+| x a f   | g 5     |     |      |          |      |      |
+| x a h   | g 6     |     |      |          |      |      |
+| x a j   | g 7     |     |      |          |      |      |
+| x a k   | g 8     |     |      |          |      |      |
+| x a m   | g 9     |     |      |          |      |      |
+| x a o   | o 0     |     |      |          |      |      |
+| x a q   | o 1     |     |      |          |      |      |
+| x a r   | o 2     |     |      |          |      |      |
+| x a s   | o 3     |     |      |          |      |      |
+| x a t   | o 4     |     |      |          |      |      |
+| x a u   | o 5     |     |      |          |      |      |
+| x a v   | o 6     |     |      |          |      |      |
+| x a w   | o 7     |     |      |          |      |      |
+| x a x   | o 8     |     |      |          |      |      |
+| x a y   | o 9     |     |      |          |      |      |
+| x a z   | s 0     |     |      |          |      |      |
+| x M-a   | s 1     |     |      |          |      |      |
+| x M-b   | s 2     |     |      |          |      |      |
+| x M-c   | s 3     |     |      |          |      |      |
+| x M-d   | s 4     |     |      |          |      |      |
+| x M-e   | s 5     |     |      |          |      |      |
+| x M-g   | s 6     |     |      |          |      |      |
+| x M-h   | s 7     |     |      |          |      |      |
+| x M-i   | s 8     |     |      |          |      |      |
+| x M-j   | s 9     |     |      |          |      |      |
+| x M-k   | [       |     |      |          |      |      |
+| x M-l   | ]       |     |      |          |      |      |
+| x M-m   | g RET   |     |      |          |      |      |
+| x n a   | g SPC   |     |      |          |      |      |
+| x n c   | o RET   |     |      |          |      |      |
+| x n f   | o SPC   |     |      |          |      |      |
+| x n g   | s RET   |     |      |          |      |      |
+| x n h   | s SPC   |     |      |          |      |      |
+| x n i   | g a     |     |      |          |      |      |
+| x n j   | g b     |     |      |          |      |      |
+| x n k   | g c     |     |      |          |      |      |
+| x n l   | g d     |     |      |          |      |      |
+| x n m   | g e     |     |      |          |      |      |
+| x n o   | g f     |     |      |          |      |      |
+| x n q   | g h     |     |      |          |      |      |
+| x n t   | g i     |     |      |          |      |      |
+| x n u   | g j     |     |      |          |      |      |
+| x n v   | g k     |     |      |          |      |      |
+| x n x   | g l     |     |      |          |      |      |
+| x n y   | g m     |     |      |          |      |      |
+| x n z   | g o     |     |      |          |      |      |
+| x M-n   | g q     |     |      |          |      |      |
+| x M-o   | g r     |     |      |          |      |      |
+| x M-p   | g s     |     |      |          |      |      |
+| x M-q   | g t     |     |      |          |      |      |
+| x r a   | g u     |     |      |          |      |      |
+| x r e   | g v     |     |      |          |      |      |
+| x r h   | g x     |     |      |          |      |      |
+| x r p   | g y     |     |      |          |      |      |
+| x r q   | g z     |     |      |          |      |      |
+| x r v   | o a     |     |      |          |      |      |
+| x r z   | o c     |     |      |          |      |      |
+| x M-r   | o e     |     |      |          |      |      |
+| x M-s   | o f     |     |      |          |      |      |
+| x M-t   | o g     |     |      |          |      |      |
+| x M-u   | o h     |     |      |          |      |      |
+| x v e   | o j     |     |      |          |      |      |
+| x v f   | o k     |     |      |          |      |      |
+| x v j   | o m     |     |      |          |      |      |
+| x v k   | o n     |     |      |          |      |      |
+| x v n   | o p     |     |      |          |      |      |
+| x v o   | o q     |     |      |          |      |      |
+| x v p   | o r     |     |      |          |      |      |
+| x v q   | o s     |     |      |          |      |      |
+| x v t   | o t     |     |      |          |      |      |
+| x v w   | o v     |     |      |          |      |      |
+| x v x   | o w     |     |      |          |      |      |
+| x v y   | o x     |     |      |          |      |      |
+| x v z   | o y     |     |      |          |      |      |
+| x M-v   | o z     |     |      |          |      |      |
+| x M-w   | s a     |     |      |          |      |      |
+| x M-x   | s b     |     |      |          |      |      |
+| x M-y   | s c     |     |      |          |      |      |
+| x M-z   | s d     |     |      |          |      |      |
+| !       | s e     |     |      |          |      |      |
+| "       | s f     |     |      |          |      |      |
+| [$]     | s g     |     |      |          |      |      |
+| %       | s i     |     |      |          |      |      |
+| &       | s j     |     |      |          |      |      |
+| (       | s k     |     |      |          |      |      |
+| )       | s l     |     |      |          |      |      |
+| +       | s m     |     |      |          |      |      |
+| :       | s p     |     |      |          |      |      |
+| <       | s q     |     |      |          |      |      |
+| >       | s r     |     |      |          |      |      |
+| ^       | s t     |     |      |          |      |      |
+| c TAB   | s u     |     |      |          |      |      |
+| c C-g   | s v     |     |      |          |      |      |
+| c C-h   | s x     |     |      |          |      |      |
+| c TAB   | s y     |     |      |          |      |      |
+| c C-n   | s z     |     |      |          |      |      |
+| c C-p   |         |     |      |          |      |      |
+| c C-u   |         |     |      |          |      |      |
+| h TAB   |         |     |      |          |      |      |
+| h '     |         |     |      |          |      |      |
+| h ,     |         |     |      |          |      |      |
+| h -     |         |     |      |          |      |      |
+| h /     |         |     |      |          |      |      |
+| h ;     |         |     |      |          |      |      |
+| h =     |         |     |      |          |      |      |
+| h [     |         |     |      |          |      |      |
+| h \     |         |     |      |          |      |      |
+| h ]     |         |     |      |          |      |      |
+| h `     |         |     |      |          |      |      |
+| h C-b   |         |     |      |          |      |      |
+| h C-g   |         |     |      |          |      |      |
+| h TAB   |         |     |      |          |      |      |
+| h C-j   |         |     |      |          |      |      |
+| h C-k   |         |     |      |          |      |      |
+| h C-q   |         |     |      |          |      |      |
+| h C-r   |         |     |      |          |      |      |
+| h C-s   |         |     |      |          |      |      |
+| h C-u   |         |     |      |          |      |      |
+| h C-v   |         |     |      |          |      |      |
+| h C-x   |         |     |      |          |      |      |
+| h C-y   |         |     |      |          |      |      |
+| h C-z   |         |     |      |          |      |      |
+| x ,     |         |     |      |          |      |      |
+| x /     |         |     |      |          |      |      |
+| x \     |         |     |      |          |      |      |
+| x C-a   |         |     |      |          |      |      |
+| x C-g   |         |     |      |          |      |      |
+| x C-h   |         |     |      |          |      |      |
+| x C-y   |         |     |      |          |      |      |
+| {       |         |     |      |          |      |      |
+| \vert   |         |     |      |          |      |      |
+| }       |         |     |      |          |      |      |
+| ~       |         |     |      |          |      |      |
+| DEL     |         |     |      |          |      |      |
+| c 0     |         |     |      |          |      |      |
+| c 1     |         |     |      |          |      |      |
+| c 2     |         |     |      |          |      |      |
+| c 3     |         |     |      |          |      |      |
+| c 4     |         |     |      |          |      |      |
+| c 5     |         |     |      |          |      |      |
+| c 6     |         |     |      |          |      |      |
+| c 7     |         |     |      |          |      |      |
+| c 8     |         |     |      |          |      |      |
+| c 9     |         |     |      |          |      |      |
+| h 0     |         |     |      |          |      |      |
+| h 1     |         |     |      |          |      |      |
+| h 2     |         |     |      |          |      |      |
+| h 3     |         |     |      |          |      |      |
+| h 5     |         |     |      |          |      |      |
+| h 6     |         |     |      |          |      |      |
+| h 7     |         |     |      |          |      |      |
+| h 8     |         |     |      |          |      |      |
+| h 9     |         |     |      |          |      |      |
+| x 7     |         |     |      |          |      |      |
+| x 9     |         |     |      |          |      |      |
+| .       |         |     |      |          |      |      |
+| ;       |         |     |      |          |      |      |
+| =       |         |     |      |          |      |      |
+| `       |         |     |      |          |      |      |
+| h SPC   |         |     |      |          |      |      |
+| x SPC   |         |     |      |          |      |      |
+| c c     |         |     |      |          |      |      |
+| c d     |         |     |      |          |      |      |
+| c h     |         |     |      |          |      |      |
+| c i     |         |     |      |          |      |      |
+| c j     |         |     |      |          |      |      |
+| c k     |         |     |      |          |      |      |
+| c n     |         |     |      |          |      |      |
+| c o     |         |     |      |          |      |      |
+| c p     |         |     |      |          |      |      |
+| c q     |         |     |      |          |      |      |
+| c s     |         |     |      |          |      |      |
+| c t     |         |     |      |          |      |      |
+| c u     |         |     |      |          |      |      |
+| c y     |         |     |      |          |      |      |
+| c z     |         |     |      |          |      |      |
+| h j     |         |     |      |          |      |      |
+| h x     |         |     |      |          |      |      |
+| h y     |         |     |      |          |      |      |
+| h z     |         |     |      |          |      |      |
+| x c     |         |     |      |          |      |      |
+| x g     |         |     |      |          |      |      |
+| x j     |         |     |      |          |      |      |
+| x p     |         |     |      |          |      |      |
+| x w     |         |     |      |          |      |      |
+| x y     |         |     |      |          |      |      |
+
+#+end_example

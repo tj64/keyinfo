@@ -156,7 +156,7 @@ in the current buffer."
       ;; return complete table
       (buffer-string))))
 
-(defun keyinfo-show (&optional out mode num ascii)
+(defun keyinfo-show (&optional ascii out mode num)
   "Insert info about keymap and unbound keys in Org file.
 If OUT is non-nil, it should be a relative or absolute file-name
 as string. If MODE is non-nil, it should be a string or symbol
@@ -238,10 +238,10 @@ key-complexity. A prefix arg triggers export to an ASCII-buffer."
             (car (split-string (symbol-name mode) "-mode" 'OMIT-NULLS)))
            nil 'NOERROR))
       (keyinfo-show
+       ascii
        (find-file-noselect out)
        mode
-       num
-       ascii)
+       num)
     (message "Unknown Emacs mode entered.")))
 
 ;; * Run Hooks and Provide

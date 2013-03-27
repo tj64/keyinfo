@@ -1,60 +1,60 @@
-#+TITLE Keyinfo PICOLISP-MODE-MAP
-#+DATE 2013-03-27 Mit 19:59 tj on hostname
+#+TITLE Keyinfo COMINT-MODE-MAP
+#+DATE 2013-03-27 Mit 20:05 tj on hostname
 
 \Human readable keymap and unbound keys\
 
 * Keymap
 
 #+begin_example
-picolisp-mode-map
------------------
+comint-mode-map
+---------------
 
 
 
 For more information check the manuals.
 
-Keymap for Picolisp mode.
-All commands in `lisp-mode-shared-map' are inherited by this map.
+Keymap for `comint-mode'.
 
 key             binding
 ---             -------
 
 C-c             Prefix Command
-TAB             picolisp-indent-line
-C-x             Prefix Command
+C-d             comint-delchar-or-maybe-eof
+RET             comint-send-input
 ESC             Prefix Command
-DEL             backward-delete-char-untabify
-<comment-region>                comment-region
-<indent-line>                   picolisp-indent-line
-<indent-region>                 indent-region
-<load-file>                     picolisp-load-file
-<run-picolisp>                  run-picolisp
-<send-def>      picolisp-send-definition
-<send-def-go>   picolisp-send-definition-and-go
-<send-region>   picolisp-send-region
-<send-region-go>                picolisp-send-region-and-go
-<send-sexp>                     picolisp-send-last-sexp
-<switch>        switch-to-picolisp
-<uncomment-region>              ??
+<C-down>        comint-next-input
+<C-up>          comint-previous-input
+<delete>        delete-char
+<kp-delete>     delete-char
+<mouse-2>       comint-insert-input
 
-C-x C-e         picolisp-send-last-sexp
-
-C-M-x           picolisp-send-definition
-
-C-c C-c         picolisp-edit-Q
-C-c C-e         picolisp-send-definition
-C-c C-l         picolisp-load-file
-C-c C-r         picolisp-send-region
-C-c C-v         picolisp-edit-K
-C-c C-x         switch-to-picolisp
+C-c C-a         comint-bol-or-process-mark
+C-c C-c         comint-interrupt-subjob
+C-c C-d         comint-send-eof
+C-c C-e         comint-show-maximum-output
+C-c C-l         comint-dynamic-list-input-ring
+C-c RET         comint-copy-old-input
+C-c C-n         comint-next-prompt
+C-c C-o         comint-delete-output
+C-c C-p         comint-previous-prompt
+C-c C-r         comint-show-output
+C-c C-s         comint-write-output
+C-c C-u         comint-kill-input
+C-c C-w         backward-kill-word
+C-c C-x         comint-get-next-from-history
+C-c C-z         comint-stop-subjob
 C-c ESC         Prefix Command
+C-c C-\         comint-quit-subjob
+C-c SPC         comint-accumulate
+C-c .           comint-insert-previous-argument
 
-C-M-q           indent-sexp
+C-M-l           comint-show-output
+M-n             comint-next-input
+M-p             comint-previous-input
+M-r             comint-history-isearch-backward-regexp
 
-C-c M-e         picolisp-send-definition-and-go
-C-c M-r         picolisp-send-region-and-go
-
-[back]
+C-c M-r         comint-previous-matching-input-from-input
+C-c M-s         comint-next-matching-input-from-input
 
 #+end_example
 
