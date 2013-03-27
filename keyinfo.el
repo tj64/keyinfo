@@ -214,24 +214,29 @@ saved manually."
         (newline)
         (insert "#+end_example\n")
         (save-buffer)
-        ;; (optionally) create and show ASCII buffer with keyinfo
-        (and ascii
-             (display-buffer
-              (org-export-to-buffer
-               'ascii
-               (concat (car (split-string (buffer-name) ".org" 'OMIT-NULLS))
-                       ":ASCII"))))))))
+        ;; (optionally) create and display ASCII buffer with keyinfo
+        (or
+         (and ascii
+              (display-buffer
+               (org-export-to-buffer
+                'ascii
+                (concat (car (split-string (buffer-name) ".org" 'OMIT-NULLS))
+                        ":ASCII"))))
+         ;; or display Org output buffer
+         (display-buffer (current-buffer)))))))
 
 ;; ** Commands
 
-(defun keyinfo-show-cmd (out mode num &optional ascii)
+(defun keyinfo-show-cmd (ascii out mode num)
   "Calls keyinfo-show with user input.
 OUT names the output file, MODE the mode-map to show, NUM the maximal
-key-complexity, and ASCII, if non-nil, triggers export to ascii-buffer."
-  (interactive
-   (concat "FOutput filename: \nSMode name (as symbol): \n"
-           "nMaximal key complexity \nP"))
-  (if (boundp mode)
+key-complexity. A prefix arg triggers export to an ASCII-buffer."
+  (interactive "P\nFOutput filename: \nSMode name as symbol: \nnMaximal key complexity: ")
+  (if (or (require mode nil 'NOERROR)
+          (require
+           (intern
+            (car (split-string (symbol-name mode) "-mode" 'OMIT-NULLS)))
+           nil 'NOERROR))
       (keyinfo-show
        (find-file-noselect out)
        mode

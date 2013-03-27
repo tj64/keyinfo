@@ -1,0 +1,132 @@
+#+TITLE Keyinfo PICOLISP-MODE-MAP
+#+DATE 2013-03-27 Mit 19:59 tj on hostname
+
+\Human readable keymap and unbound keys\
+
+* Keymap
+
+#+begin_example
+picolisp-mode-map
+-----------------
+
+
+
+For more information check the manuals.
+
+Keymap for Picolisp mode.
+All commands in `lisp-mode-shared-map' are inherited by this map.
+
+key             binding
+---             -------
+
+C-c             Prefix Command
+TAB             picolisp-indent-line
+C-x             Prefix Command
+ESC             Prefix Command
+DEL             backward-delete-char-untabify
+<comment-region>                comment-region
+<indent-line>                   picolisp-indent-line
+<indent-region>                 indent-region
+<load-file>                     picolisp-load-file
+<run-picolisp>                  run-picolisp
+<send-def>      picolisp-send-definition
+<send-def-go>   picolisp-send-definition-and-go
+<send-region>   picolisp-send-region
+<send-region-go>                picolisp-send-region-and-go
+<send-sexp>                     picolisp-send-last-sexp
+<switch>        switch-to-picolisp
+<uncomment-region>              ??
+
+C-x C-e         picolisp-send-last-sexp
+
+C-M-x           picolisp-send-definition
+
+C-c C-c         picolisp-edit-Q
+C-c C-e         picolisp-send-definition
+C-c C-l         picolisp-load-file
+C-c C-r         picolisp-send-region
+C-c C-v         picolisp-edit-K
+C-c C-x         switch-to-picolisp
+C-c ESC         Prefix Command
+
+C-M-q           indent-sexp
+
+C-c M-e         picolisp-send-definition-and-go
+C-c M-r         picolisp-send-region-and-go
+
+[back]
+
+#+end_example
+
+* Unbound Keys
+
+Unbound keys with complexity at most 6
+
+#+begin_example
+| C-    | M-  | S-  |
+|-------+-----+-----|
+| .     | g a | RET |
+| ;     | g b | SPC |
+| =     | g c |     |
+| `     | g d |     |
+| h SPC | g e |     |
+| x SPC | g f |     |
+| c c   | g h |     |
+| c d   | g i |     |
+| c h   | g j |     |
+| c i   | g k |     |
+| c j   | g l |     |
+| c k   | g m |     |
+| c n   | g o |     |
+| c o   | g q |     |
+| c p   | g r |     |
+| c q   | g s |     |
+| c s   | g t |     |
+| c t   | g u |     |
+| c u   | g v |     |
+| c y   | g x |     |
+| c z   | g y |     |
+| h j   | g z |     |
+| h x   | o a |     |
+| h y   | o c |     |
+| h z   | o e |     |
+| x c   | o f |     |
+| x g   | o g |     |
+| x j   | o h |     |
+| x p   | o j |     |
+| x w   | o k |     |
+| x y   | o m |     |
+|       | o n |     |
+|       | o p |     |
+|       | o q |     |
+|       | o r |     |
+|       | o s |     |
+|       | o t |     |
+|       | o v |     |
+|       | o w |     |
+|       | o x |     |
+|       | o y |     |
+|       | o z |     |
+|       | s a |     |
+|       | s b |     |
+|       | s c |     |
+|       | s d |     |
+|       | s e |     |
+|       | s f |     |
+|       | s g |     |
+|       | s i |     |
+|       | s j |     |
+|       | s k |     |
+|       | s l |     |
+|       | s m |     |
+|       | s p |     |
+|       | s q |     |
+|       | s r |     |
+|       | s t |     |
+|       | s u |     |
+|       | s v |     |
+|       | s x |     |
+|       | s y |     |
+|       | s z |     |
+
+#+end_example
